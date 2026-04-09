@@ -23,7 +23,3 @@ RECENT_SNAP_FILE  = os.path.join(DIR, "recent-snap.txt")
 AI_QUERY_FILE     = os.path.join(DIR, "ai-query.txt")
 AI_ANALYSIS_FILE  = os.path.join(DIR, "ai-analysis.txt")
 
-GEMINI_API_KEY     = "AIzaSyDIxgd5yM-Pbc2fR-udkaD1uzSG9dyjSPc"
-GEMINI_MODEL       = "gemini-3.1-flash-lite-preview"          
-TELEGRAM_BOT_TOKEN = "8747682342:AAG5f--5bePDBGjTFQDw0B7rLNGZFNkzQU8"
-TELEGRAM_CHAT_ID   = "-1003800058836"
