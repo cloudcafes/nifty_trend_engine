@@ -1,0 +1,12 @@
+[DUMMY TEST DATA]
+INPUT_SPOT:[23700.0, 23710.0, 23720.0, 23730.0, 23740.0, 23750.0]:last 15 rows
+ATR:5.00:mean(abs diff last 5):volatility normalization
+FAST_SLOPE:8.50:thr=2.00:short-term momentum
+SLOW_SLOPE:4.20:thr=4.00:trend structure
+RAW_TREND:STRONG_UP:fast+slow relation:initial direction
+OI_LABEL:BULLISH_CONFIRM:price+OI relation:smart money confirmation
+ACCEL:UP:prev=4.00:momentum change
+FINAL_SIGNAL:STRONG UP:priority logic:final classification
+------------------------------------------------------------
+TIME  | SPOT  | SIGNAL          | TRADING_STATUS  | SESSION | FAST | SLOW | ACCEL    | OI LABEL        | VOL LABEL
+15:45 | 23750 | STRONG UP       | HIGH_PROB_CALL  | +50     | +8.5 | +4.2 | UP       | BULLISH_CONFIRM | NORMAL
