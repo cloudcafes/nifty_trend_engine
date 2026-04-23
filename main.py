@@ -4,98 +4,92 @@ import threading
 from config import IST, FETCH_INTERVAL_MINUTES, NSE_HOLIDAYS
 from data import init_db, store_snapshot_and_get_data, update_snapshot_status, load_snapshots, load_state, save_state, log_engine_run
 from compute import compute_metrics
-from classify import classify_signal
+from classify import process_engine_step
 from output import process_output
 from ai_notify import trigger_ai_and_telegram
+import sqlite3
 
 def main():
-    init_db()
-    print("Nifty Trend Engine v2 Started (Threaded AI & Internal Scheduler)\n")
-    last_run_minute = None
+   conn = sqlite3.connect("nifty.db")
+   conn.execute("DELETE FROM snapshots WHERE spot <= 0")
+   conn.commit()
+   conn.close()
+   print("Nifty Trend Engine v21.4 Started (Stop Limits & Threshold Optimization)\n")
+   init_db()
+   last_run_minute = None
 
-    while True:
-        now = datetime.datetime.now(IST)
-        today_str = now.strftime('%Y-%m-%d')
-        
-        # ==========================================
-        # INTERNAL SCHEDULER
-        # ==========================================
-        
-        # 1. Weekend Check (0=Monday ... 5=Saturday, 6=Sunday)
-        if now.weekday() >= 5: 
-            time.sleep(3600) # Sleep 1 hour
+   while True:
+      now = datetime.datetime.now(IST)
+      today_str = now.strftime('%Y-%m-%d')
+      t = now.time()
+
+      if now.weekday() >= 5 or today_str in NSE_HOLIDAYS: 
+         time.sleep(3600)
+         continue
+
+      if t >= datetime.time(15, 30):
+         time.sleep(300)
+         continue
+         
+      if t < datetime.time(9, 0):
+         time.sleep(60)
+         continue
+      
+      force_exit_only = False
+      if t >= datetime.time(15, 15):
+         state = load_state(today_str)
+         if state.get("active_trade") == "NO_TRADE":
+            print(f"{now.strftime('%H:%M')} | --- NO NEW TRADES AFTER 15:15 ---")
+            time.sleep(60)
+            continue
+         else:
+            force_exit_only = True 
+
+      curr_minute = now.minute
+      if curr_minute % FETCH_INTERVAL_MINUTES == 0 and curr_minute != last_run_minute:
+         last_run_minute = curr_minute
+         
+         ts_str = store_snapshot_and_get_data(now)
+         
+         if not ts_str: 
+            print(f"{now.strftime('%H:%M')} | --- NSE API FETCH FAILED / TIMEOUT ---")
             continue
 
-        # 2. Holiday Check
-        if today_str in NSE_HOLIDAYS:
-            time.sleep(3600) # Sleep 1 hour
+         snapshots = load_snapshots(35) 
+         
+         if len(snapshots) < 15: 
+            print(f"{now.strftime('%H:%M')} | --- WAITING FOR MORE DATA ({len(snapshots)}/15 BARS) ---")
             continue
 
-        # 3. Market Hours Check (9:15 AM to 3:30 PM)
-        market_open = datetime.time(9, 15)
-        market_close = datetime.time(15, 30)
-        
-        if not (market_open <= now.time() <= market_close):
-            time.sleep(60) # Sleep 1 minute
-            continue
+         state = load_state(today_str)
+         
+         metrics = compute_metrics(snapshots, state)
+         if not metrics: continue
 
-        # ==========================================
-        # ENGINE EXECUTION PIPELINE
-        # ==========================================
-        
-        curr_minute = now.minute
+         classification = process_engine_step(metrics, state, t, force_exit_only)
+         final_signal = classification['signal']
+         action = classification['action']
 
-        if curr_minute % FETCH_INTERVAL_MINUTES == 0 and curr_minute != last_run_minute:
-            last_run_minute = curr_minute
-            
-            ts_str = store_snapshot_and_get_data(now)
-            if not ts_str:
-                continue
+         printed, reason, raw_output, trading_status = process_output(ts_str, classification, metrics, state)
 
-            snapshots = load_snapshots(15)
-            if len(snapshots) < 8:
-                continue
+         update_snapshot_status(ts_str, trading_status)
+         log_engine_run(ts_str, final_signal, trading_status, printed, reason, raw_output)
 
-            if now.time() <= datetime.time(9, 20):
-                continue
-            
-            today_str = now.strftime('%Y-%m-%d')
-            state = load_state(today_str)
-            
-            metrics = compute_metrics(snapshots, state)
-            if not metrics: continue
+         save_state(state)
 
-            final_signal = classify_signal(metrics)
+         is_trade_trigger = printed and action in ["ENTRY", "EXIT"]
+         
+         is_periodic_update = (curr_minute in [15, 45]) and (t >= datetime.time(9, 45))
 
-            printed, reason, raw_output, trading_status = process_output(ts_str, final_signal, metrics, state)
+         if is_trade_trigger or is_periodic_update:
+            if is_trade_trigger:
+               print(f"*** NEW TELEGRAM SIGNAL: {trading_status} ***")
+            else:
+               print(f"*** SCHEDULED MARKET PERSPECTIVE: {now.strftime('%H:%M')} ***")
+               
+            threading.Thread(target=trigger_ai_and_telegram, args=(is_periodic_update,), daemon=True).start()
 
-            update_snapshot_status(ts_str, trading_status)
-            log_engine_run(ts_str, final_signal, trading_status, printed, reason, raw_output)
-
-            # Update State Memory
-            state['last_trend'] = final_signal
-            state['last_accel'] = metrics['accel']
-            state['last_oi_label'] = metrics['oi_label']
-            state['last_vol_label'] = metrics['vol_label']
-            state['prev_raw_trend'] = metrics['raw_trend']
-            state['last_trading_status'] = trading_status
-            
-            state['slope_history'].append(metrics['fast_slope'])
-            if len(state['slope_history']) > 5: 
-                state['slope_history'].pop(0)
-
-            save_state(state)
-
-            # ==========================================
-            # NON-INTERFERING ASYNC AI & TELEGRAM TRIGGER
-            # ==========================================
-            if printed and trading_status in ["HIGH_PROB_CALL", "HIGH_PROB_PUT"]:
-                print(f"*** TRADE TRIGGERED: {trading_status} ***")
-                print("Launching AI Analysis and Telegram alert in background...")
-                # Daemon=True ensures this runs completely detached from the 1-minute loop
-                threading.Thread(target=trigger_ai_and_telegram, daemon=True).start()
-
-        time.sleep(1)
+      time.sleep(1)
 
 if __name__ == "__main__":
-    main()
+   main()

@@ -1,9 +1,15 @@
 import os
 from zoneinfo import ZoneInfo
 
+# Version 21.4 - Fixed Regime Constraints, Stop Limits & Risk Bypasses
 IST = ZoneInfo('Asia/Kolkata')
 DB_NAME = "nifty.db"
 FETCH_INTERVAL_MINUTES = 1
+
+# ==========================================
+# SYSTEM THRESHOLDS (v21.4)
+# ==========================================
+SLIPPAGE = 3.0 # Represents 3 points of slippage on entry and 3 on exit
 
 # ==========================================
 # MARKET HOLIDAYS (2026)

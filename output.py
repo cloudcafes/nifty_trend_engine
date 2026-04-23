@@ -1,94 +1,90 @@
-from config import RECENT_SNAP_FILE
+from config import RECENT_SNAP_FILE, SLIPPAGE
 
-def check_put_entry(metrics, signal, prev_signal):
-    if (prev_signal == "TRANSITION DOWN" and signal in ["EARLY DOWN", "STRONG DOWN"]
-        and metrics['fast_slope'] < 0 and metrics['slow_slope'] < 0
-        and metrics['accel'] == "UP" and metrics['oi_label'] == "BEARISH_CONFIRM"
-        and metrics['vol_label'] == "NORMAL" and metrics['oi_label'] != "TRAP"
-        and abs(metrics['session_move']) < 60):
-        return True
-    return False
+def compute_current_pnl(price, state):
+   trade = state.get("active_trade", "NO_TRADE")
+   if trade == "NO_TRADE": return 0.0
+   
+   entry = state.get("entry_spot", price)
+   if trade == "CALL": 
+      return (price - SLIPPAGE) - (entry + SLIPPAGE)
+   if trade == "PUT": 
+      return (entry - SLIPPAGE) - (price + SLIPPAGE)
+   return 0.0
 
-def check_call_entry(metrics, signal, prev_signal):
-    if (prev_signal == "TRANSITION UP" and signal in ["EARLY UP", "STRONG UP"]
-        and metrics['fast_slope'] > 0 and metrics['slow_slope'] > 0
-        and metrics['accel'] == "UP" and metrics['oi_label'] == "BULLISH_CONFIRM"
-        and metrics['vol_label'] == "NORMAL" and metrics['oi_label'] != "TRAP"
-        and abs(metrics['session_move']) < 60):
-        return True
-    return False
+def process_output(ts_str, classification, metrics, state):
+   price = metrics["price"]
+   momentum = metrics["momentum"]
+   regime = metrics.get("regime", "UNKNOWN")
+   vwap = metrics.get("vwap", price)
+   bias = metrics.get("bias", "NONE")
 
-def get_trading_status(metrics, signal, prev_signal):
-    if check_put_entry(metrics, signal, prev_signal): return "HIGH_PROB_PUT"
-    elif check_call_entry(metrics, signal, prev_signal): return "HIGH_PROB_CALL"
-    else: return "NO_TRADE"
+   action = classification.get("action", "NO_TRADE")
+   signal = classification.get("signal", "NO_TRADE")
+   reason = classification.get("reason", "NONE")
+   strike = classification.get("strike", "N/A")
+   score = classification.get("score", 0)
 
-def process_output(ts_str, signal, metrics, state):
-    prev_signal = state['last_trend']
-    trading_status = get_trading_status(metrics, signal, prev_signal)
+   active_trade = state.get("active_trade", "NO_TRADE")
 
-    # 1. Build the full debug block as a string list
-    trans_val = metrics['transition'] if metrics['transition'] else "None"
-    fade_val = metrics['fading'] if metrics['fading'] else "None"
-    
-    debug_lines = [
-        f"INPUT_SPOT:{metrics['raw_spots']}:last 15 rows:price series for trend detection",
-        f"INPUT_CE_OI:{metrics['ce_ois']}:last 15 rows:call positioning data",
-        f"INPUT_PE_OI:{metrics['pe_ois']}:last 15 rows:put positioning data",
-        f"INPUT_VOLUME:{metrics['vols']}:ce_vol+pe_vol:activity level",
-        f"ATR:{metrics['atr']:.2f}:mean(abs diff last 5):volatility normalization",
-        f"NOISE_FILTER:{metrics['filtered_spots']}:delta<{metrics['min_delta']:.2f}:remove micro noise",
-        f"TRANSITION:{trans_val}:move={metrics['net_move']:.2f},thr={metrics['threshold']:.2f}:early trend detection",
-        f"FAST_SLOPE:{metrics['fast_slope']:.2f}:thr={metrics['fast_threshold']:.2f}:short-term momentum",
-        f"SLOW_SLOPE:{metrics['slow_slope']:.2f}:thr={metrics['slow_threshold']:.2f}:trend structure",
-        f"RAW_TREND:{metrics['raw_trend']}:fast+slow relation:initial direction",
-        f"PERSISTENCE:{metrics['trend']}:prev={state.get('prev_raw_trend', 'SIDEWAYS')}:avoid signal flicker",
-        f"FADING:{fade_val}:fast weakening vs slow trend:trend slowdown",
-        f"OI_LABEL:{metrics['oi_label']}:price+OI relation:smart money confirmation",
-        f"VOL_LABEL:{metrics['vol_label']}:curr={metrics['current_vol']:.2f},avg={metrics['avg_vol']:.2f}:risk level",
-        f"ACCEL:{metrics['accel']}:prev={metrics['prev_fast_slope']:.2f}:momentum change",
-        f"SESSION_MOVE:{metrics['session_move']:.2f}:spot-open:trend maturity",
-        f"FINAL_SIGNAL:{signal}:priority logic:final classification",
-        "-" * 60
-    ]
-    debug_block = "\n".join(debug_lines)
+   type_str = reason[:6] if action == "ENTRY" else "-"
 
-    # 2. Build the Snapshot Output
-    hh_mm = ts_str.split(" ")[1][:5]
-    columns_header = "TIME  | SPOT  | SIGNAL          | TRADING_STATUS  | SESSION | FAST | SLOW | ACCEL    | OI LABEL        | VOL LABEL"
-    
-    raw_output = (
-        f"{hh_mm} | {metrics['spot']:.0f} | {signal:<15} | "
-        f"Trading_Status:{trading_status:<14} | "
-        f"session:{metrics['session_move']:+.0f} | fast:{metrics['fast_slope']:+.1f} | "
-        f"slow:{metrics['slow_slope']:+.1f} | accel:{metrics['accel']:<8} | "
-        f"oi:{metrics['oi_label']:<15} | vol:{metrics['vol_label']}"
-    )
+   if active_trade != "NO_TRADE":
+      pnl = compute_current_pnl(price, state)
+      max_pnl = state.get("max_profit", 0.0)
+      
+      if max_pnl > 5.0:
+         dd = (max_pnl - pnl) / max_pnl
+      else:
+         dd = 0.0
+   else:
+      pnl = 0.0
+      dd = 0.0
+      max_pnl = 0.0
 
-    # 3. Duplicate Suppression check
-    is_duplicate = (
-        signal == state['last_trend'] and metrics['accel'] == state['last_accel'] and
-        metrics['oi_label'] == state['last_oi_label'] and metrics['vol_label'] == state['last_vol_label'] and
-        trading_status == state.get('last_trading_status', 'NO_TRADE')
-    )
-    should_print = True
-    reason = "DUPLICATE" if is_duplicate else ""
+   hh_mm = ts_str.split(" ")[1][:5]
+   columns_header = "TIME  | SPOT  | REGIME   | ACTION  | SIGNAL | SCORE  | PNL  | DD"
+   
+   main_line = (
+      f"{hh_mm} | {price:.0f} | {regime:<8} | {action:<7} | "
+      f"{signal:<6} | {score:<6} | {pnl:+.0f} | {dd:.0%}"
+   )
 
-    # ==========================================
-    # FILE WRITING (ALWAYS RUNS)
-    # Overwrites recent-snap.txt with debug block + snapshot
-    # ==========================================
-    with open(RECENT_SNAP_FILE, "w", encoding='utf-8') as f:
-        f.write(debug_block + "\n")
-        f.write(columns_header + "\n")
-        f.write(raw_output + "\n")
+   diag_lines = [
+      f"MOM:{momentum:.6f} | EXP_MOVE:{metrics.get('expected_move',0):.1f} | PROG:{metrics.get('move_progress',0):.2f}",
+      f"BIAS:{bias} | RNG_10:{metrics.get('range_10',0):.1f}",
+      f"VOL_SPIKE:{'YES' if metrics['vol_spike'] else 'NO'} | VWAP:{vwap:.1f}",
+      f"ENTRY/EXIT REASON: {reason} | DAILY_TRADES: {state.get('daily_trades', 0)}/UNCAPPED"
+   ]
+   
+   if action == "ENTRY":
+      diag_lines.append(f"SUGGESTED_STRIKE: {strike}")
+   
+   if active_trade != "NO_TRADE":
+      diag_lines.append(
+         f"TRADE:{active_trade} | BARS:{state.get('bars_in_trade', 0)} | "
+         f"MAX_PNL:{max_pnl:.1f} | CUR_PNL:{pnl:.1f} | "
+         f"LOCK:{state.get('trend_lock',0)} | HOLD:{state.get('min_hold',0)}"
+      )
+   diag_lines.append("-" * 80)
 
-    # ==========================================
-    # CONSOLE PRINTING
-    # ==========================================
-    print(debug_block)
-    if should_print:
-        print(columns_header)
-        print(raw_output)
+   debug_block = "\n".join(diag_lines)
 
-    return should_print, reason, raw_output, trading_status
+   trading_status = "NO_TRADE"
+   if action == "ENTRY":
+      trading_status = f"{signal}_{reason}"
+   elif active_trade != "NO_TRADE":
+      trading_status = f"HOLD_{active_trade}"
+
+   should_print = True
+   action_reason = "MAINTAINING_STATE" if action in ["HOLD", "NO_TRADE"] else ""
+
+   with open(RECENT_SNAP_FILE, "w", encoding='utf-8') as f:
+      f.write(columns_header + "\n")
+      f.write(main_line + "\n\n")
+      f.write(debug_block + "\n")
+
+   print(columns_header)
+   print(main_line)
+   print(debug_block)
+
+   return should_print, action_reason, main_line, trading_status

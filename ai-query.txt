@@ -31,10 +31,9 @@ Analyze the snapshot below using the context provided and provide:
 1. Explain market perspective,direction,context, verdict and why?
 2. Explain Key levels to watch and why?
 3. Intraday trade recommendation with entry zone, Stop Loss (spot), and Target (spot) & why?
-4. Top 2-3 risk factors right now and why? 
-5. Overall confidence rating out of 10.
-6. Write the Telegram message using the exact structure below. Keep it concise, mobile-friendly, and use appropriate emojis. Do not add conversational fluff (no "Hello" or "Here is the analysis"). 
-7. FORMAT REQUIRED: Start With: 🚨 FRESH TRADE ALERT: [Direction based on Trading_Status] 🚨 ⏱ Time: [Extracted Time] | 🎯 Spot: [Extracted Spot Price]
+4. If there are no trend/momentum in the market then analyze and tell which strategy among Bull Call Spread, Bear Put Spread, Calendar Spread, Diagonal Spread, Ratio Spread, Straddle, Strangle, Short Straddle, Short Strangle can reap profit with highest probability and why and how.
+5. Top risk factors right now and why? 
+6. Do not include additional commentary and just stick to answer.
 
 ---
 [DATA_BLOCK BELOW]
