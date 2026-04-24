@@ -3,7 +3,7 @@ import requests
 import datetime
 import json
 import time
-from config import DB_NAME, IST
+from config import DB_NAME, IST, ATR_SEED
 
 session = requests.Session()
 session.headers.update({
@@ -27,8 +27,6 @@ def init_db():
 
         cols = [
             ("bars_in_trade", "INTEGER DEFAULT 0"),
-            ("cooldown", "INTEGER DEFAULT 0"),
-            ("atr_hist", "TEXT DEFAULT '[]'"),
             ("max_profit", "REAL DEFAULT 0.0"),
             ("entry_spot", "REAL DEFAULT 0.0"),
             ("momentum_history", "TEXT DEFAULT '[]'"),
@@ -37,14 +35,19 @@ def init_db():
             ("vwap_num", "REAL DEFAULT 0.0"),
             ("vwap_den", "REAL DEFAULT 0.0"),
             ("last_cum_vol", "REAL DEFAULT 0.0"),
-            ("prev_atr", "REAL DEFAULT 1.0"),
-            ("prev_oi_flow", "REAL DEFAULT 0.0"),
+            ("fast_atr", f"REAL DEFAULT {ATR_SEED}"),
+            ("medium_atr", f"REAL DEFAULT {ATR_SEED}"),
+            ("slow_atr", f"REAL DEFAULT {ATR_SEED}"),
             ("trend_lock", "INTEGER DEFAULT 0"),
             ("min_hold", "INTEGER DEFAULT 0"),
             ("daily_trades", "INTEGER DEFAULT 0"),
             ("consecutive_losses", "INTEGER DEFAULT 0"),
-            ("loss_cooldown_until", "INTEGER DEFAULT 0"),
-            ("last_trade_time", "INTEGER DEFAULT 0")
+            ("loss_cooldown_bars", "INTEGER DEFAULT 0"),
+            ("exit_cooldown", "INTEGER DEFAULT 0"),
+            ("spike_cooldown", "INTEGER DEFAULT 0"),
+            ("last_trade_time", "INTEGER DEFAULT 0"),
+            ("daily_pnl", "REAL DEFAULT 0.0"),
+            ("last_trade_dir", "TEXT DEFAULT 'NONE'")
         ]
         for col, dtype in cols:
             try: conn.execute(f"ALTER TABLE engine_state ADD COLUMN {col} {dtype}")
@@ -67,8 +70,7 @@ def fetch_nse_data():
                     data = chain_resp.json()
                     if 'records' in data and 'data' in data['records'] and len(data['records']['data']) > 0:
                         return data
-        except Exception as e: 
-            pass
+        except Exception: pass
         time.sleep(2)
     return None
 
@@ -77,9 +79,10 @@ def store_snapshot_and_get_data(now: datetime.datetime):
     if not data or 'records' not in data: return False
     
     spot = data['records']['underlyingValue']
+    if spot < 10000 or spot > 40000: return False
+
     atm_strike = round(spot / 50) * 50
     target_strikes = [atm_strike - 100, atm_strike - 50, atm_strike, atm_strike + 50, atm_strike + 100]
-    
     ts_str = now.strftime('%Y-%m-%d %H:%M:00')
     ce_oi, pe_oi, ce_vol, pe_vol = 0, 0, 0, 0
     
@@ -107,8 +110,7 @@ def load_snapshots(limit=35):
     with sqlite3.connect(DB_NAME) as conn:
         conn.row_factory = sqlite3.Row
         cur = conn.execute("SELECT * FROM snapshots ORDER BY timestamp DESC LIMIT ?", (limit,))
-        rows = cur.fetchall()
-        return [dict(r) for r in reversed(rows)] 
+        return [dict(r) for r in reversed(cur.fetchall())] 
 
 def load_state(today_str: str):
     with sqlite3.connect(DB_NAME) as conn:
@@ -116,52 +118,37 @@ def load_state(today_str: str):
         state = dict(conn.execute("SELECT * FROM engine_state WHERE id=1").fetchone())
         
         if state.get('date') != today_str:
-            state['date'] = today_str
-            state['atr_hist'] = '[]'
-            state['momentum_history'] = '[]'
-            state['trend_state'] = 'IDLE'
-            state['active_trade'] = 'NO_TRADE'
-            state['bars_in_trade'] = 0
-            state['cooldown'] = 0
-            state['max_profit'] = 0.0
-            state['entry_spot'] = 0.0
-            state['prev_momentum'] = 0.0
-            state['prev_momentum_for_accel'] = 0.0
-            state['vwap_num'] = 0.0
-            state['vwap_den'] = 0.0
-            state['last_cum_vol'] = 0.0
-            state['prev_atr'] = 15.0
-            state['prev_oi_flow'] = 0.0
-            state['trend_lock'] = 0
-            state['min_hold'] = 0
-            state['daily_trades'] = 0
-            state['consecutive_losses'] = 0
-            state['loss_cooldown_until'] = 0
-            state['last_trade_time'] = 0
+            state.update({
+                'date': today_str, 'momentum_history': '[]', 'trend_state': 'IDLE', 'active_trade': 'NO_TRADE',
+                'bars_in_trade': 0, 'max_profit': 0.0, 'entry_spot': 0.0, 'prev_momentum': 0.0,
+                'prev_momentum_for_accel': 0.0, 'vwap_num': 0.0, 'vwap_den': 0.0, 'last_cum_vol': 0.0,
+                'fast_atr': ATR_SEED, 'medium_atr': ATR_SEED, 'slow_atr': ATR_SEED, 'trend_lock': 0,
+                'min_hold': 0, 'daily_trades': 0, 'consecutive_losses': 0, 'loss_cooldown_bars': 0,
+                'exit_cooldown': 0, 'spike_cooldown': 0, 'last_trade_time': 0, 'daily_pnl': 0.0,
+                'last_trade_dir': 'NONE'
+            })
             
-        state['atr_hist'] = json.loads(state.get('atr_hist', '[]'))
         state['momentum_history'] = json.loads(state.get('momentum_history', '[]'))
         return state
 
 def save_state(state):
     with sqlite3.connect(DB_NAME) as conn:
         conn.execute('''UPDATE engine_state SET 
-            date=?, active_trade=?, bars_in_trade=?, cooldown=?,
-            atr_hist=?, trend_state=?, max_profit=?, entry_spot=?,
+            date=?, active_trade=?, bars_in_trade=?, max_profit=?, entry_spot=?,
             momentum_history=?, prev_momentum=?, prev_momentum_for_accel=?, 
-            vwap_num=?, vwap_den=?, last_cum_vol=?, prev_atr=?, prev_oi_flow=?,
+            vwap_num=?, vwap_den=?, last_cum_vol=?, fast_atr=?, medium_atr=?, slow_atr=?,
             trend_lock=?, min_hold=?, daily_trades=?, consecutive_losses=?, 
-            loss_cooldown_until=?, last_trade_time=? WHERE id=1''',
-            (state['date'], state['active_trade'], state['bars_in_trade'], state.get('cooldown', 0),
-             json.dumps(state['atr_hist']), state.get('trend_state', 'IDLE'),
-             state.get('max_profit', 0.0), state.get('entry_spot', 0.0),
-             json.dumps(state.get('momentum_history', [])),
+            loss_cooldown_bars=?, exit_cooldown=?, spike_cooldown=?, last_trade_time=?, 
+            daily_pnl=?, last_trade_dir=? WHERE id=1''',
+            (state['date'], state['active_trade'], state['bars_in_trade'], state.get('max_profit', 0.0), 
+             state.get('entry_spot', 0.0), json.dumps(state.get('momentum_history', [])),
              state.get('prev_momentum', 0.0), state.get('prev_momentum_for_accel', 0.0),
              state.get('vwap_num', 0.0), state.get('vwap_den', 0.0), state.get('last_cum_vol', 0.0),
-             state.get('prev_atr', 1.0), state.get('prev_oi_flow', 0.0),
-             state.get('trend_lock', 0), state.get('min_hold', 0),
-             state.get('daily_trades', 0), state.get('consecutive_losses', 0), 
-             state.get('loss_cooldown_until', 0), state.get('last_trade_time', 0)))
+             state.get('fast_atr', ATR_SEED), state.get('medium_atr', ATR_SEED), state.get('slow_atr', ATR_SEED),
+             state.get('trend_lock', 0), state.get('min_hold', 0), state.get('daily_trades', 0), 
+             state.get('consecutive_losses', 0), state.get('loss_cooldown_bars', 0), state.get('exit_cooldown', 0),
+             state.get('spike_cooldown', 0), state.get('last_trade_time', 0), state.get('daily_pnl', 0.0), 
+             state.get('last_trade_dir', 'NONE')))
 
 def log_engine_run(ts, trend, status, printed, reason, raw):
     with sqlite3.connect(DB_NAME) as conn:
