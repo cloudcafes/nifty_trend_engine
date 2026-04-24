@@ -1,314 +1,617 @@
 from config import SLIPPAGE, DELTA_ATM, MAX_DAILY_DRAWDOWN
 
+# =========================
+# BASIC HELPERS
+# =========================
+
 def count_same_sign(hist):
-    if not hist: return 0
-    sign = 1 if hist[-1] > 0 else -1
+    """Count consecutive bars of same sign momentum from the end."""
+    if not hist:
+        return 0
+    last = hist[-1]
+    if last == 0:
+        return 0
+    sign = 1 if last > 0 else -1
     count = 0
     for val in reversed(hist):
-        if (val > 0 and sign > 0) or (val < 0 and sign < 0): count += 1
-        else: break
+        if val == 0:
+            break
+        if (val > 0 and sign > 0) or (val < 0 and sign < 0):
+            count += 1
+        else:
+            break
     return count
 
+
 def compute_pnl(entry, exit_price, trade_type):
-    if trade_type == "CALL": raw_spot_diff = exit_price - entry
-    elif trade_type == "PUT": raw_spot_diff = entry - exit_price
-    else: return 0.0
+    """Compute option-equivalent PnL from spot movement."""
+    if trade_type == "CALL":
+        raw_spot_diff = exit_price - entry
+    elif trade_type == "PUT":
+        raw_spot_diff = entry - exit_price
+    else:
+        return 0.0
     return (raw_spot_diff * DELTA_ATM) - SLIPPAGE
 
-def detect_regime(metrics):
-    atr_pct, momentum, range_10 = metrics.get("atr_pct", 0), abs(metrics.get("momentum", 0)), metrics.get("range_10", 0)
-    if atr_pct < 0.00015:
-        if momentum > 0.5: return "TRANSITION"
-        return "LOW_VOL"
-    if range_10 > 20 and momentum > 0.4: return "TRENDING"
-    if range_10 < 15 and momentum < 0.3: return "CHOPPY"
-    return "TRANSITION"
 
-def detect_breakout_pattern(prices):
-    if len(prices) < 15: return False, "NONE"
-    p_break, p_follow, p_curr = prices[-3], prices[-2], prices[-1]
-    high_10, low_10 = max(prices[-13:-3]), min(prices[-13:-3])
-    if p_break > high_10 and p_follow > p_break and p_curr >= high_10: return True, "CALL"
-    if p_break < low_10 and p_follow < p_break and p_curr <= low_10: return True, "PUT"
-    return False, "NONE"
+def update_session_tracking(state, price):
+    if state.get("session_open") in (None, 0):
+        state["session_open"] = price
+    if state.get("session_high") in (None, 0) or price > state["session_high"]:
+        state["session_high"] = price
+    if state.get("session_low") in (None, 0) or price < state["session_low"]:
+        state["session_low"] = price
 
-def compute_score(metrics):
-    direction = "CALL" if metrics.get("momentum", 0) > 0 else "PUT"
-    score = 0
-    bands = metrics.get("vwap_bands", {})
-    momentum = abs(metrics.get("momentum", 0))
-    price = metrics.get("price", 0)
-    vwap = metrics.get("vwap", 0)
-    regime = metrics.get("regime", "TRANSITION")
-
-    if momentum > 0.6 and regime == "TRENDING": score += 35
-    elif momentum > 0.3: score += 20
-    elif momentum > 0.1: score += 10
-
-    if direction == "CALL" and bands:
-        if bands.get("upper1", 0) < price < bands.get("upper2", 0): score += 25
-        elif vwap < price <= bands.get("upper1", 0): score += 10
-        elif price >= bands.get("upper2", 0): score += 15  
-
-    if direction == "PUT" and bands:
-        if bands.get("lower2", 0) < price < bands.get("lower1", 0): score += 25
-        elif bands.get("lower1", 0) <= price < vwap: score += 10
-        elif price <= bands.get("lower2", 0): score += 15  
-
-    vol_ratio = metrics.get("vol_ratio", 1.0)
-    if vol_ratio > 1.5: score += 20
-    elif vol_ratio > 1.2: score += 10
-
-    pcr, pcr_delta, oi_bias = metrics.get("pcr", 1.0), metrics.get("pcr_delta", 0.0), metrics.get("oi_bias", "NONE")
-
-    if direction == "PUT":
-        if pcr > 1.1: score += 15
-        elif oi_bias == "PUT": score += 8
-        if pcr_delta > 0.05: score += 10
-
-    if direction == "CALL":
-        if pcr < 0.75: score += 15
-        elif oi_bias == "CALL": score += 8
-        if pcr_delta < -0.05: score += 10
-
-    breakout, bo_dir = detect_breakout_pattern(metrics.get("prices", []))
-    if breakout and bo_dir == direction:
-        score += 10
-        direction = bo_dir
-
-    accel = metrics.get("accel", 0.0)
-    if direction == "CALL" and accel > 0.3: score += 5
-    elif direction == "PUT" and accel < -0.3: score += 5
-
-    return score, direction
-
-def get_trade_decision(metrics, regime, state, current_time):
-    score, direction = compute_score(metrics)
-    t_min = current_time.hour * 60 + current_time.minute
-
-    if state.get("daily_pnl", 0.0) <= MAX_DAILY_DRAWDOWN:
-        return "NO_TRADE", score, "CIRCUIT_BREAKER"
-
-    if t_min < 570: return "NO_TRADE", score, "PRE_TRADE_WINDOW"
-    if t_min >= 885: return "NO_TRADE", score, "POST_CUTOFF"
-
-    # 1. DYNAMIC THRESHOLD: Adaptive barrier based on current market behavior
-    base_threshold = 65 if regime == "TRENDING" else 75
-    if state.get("daily_trades", 0) >= 2: base_threshold += 10
-    
-    # 2. TREND-FOLLOWING OVERRIDE (Replaces previous Bias Conflict Gridlock)
-    struct_bias = metrics.get("structural_bias", "NONE")
-    tact_bias = metrics.get("tactical_bias", "NONE")
-    momentum = metrics.get("momentum", 0)
-    
-    # Is the market physically trending in the direction of the Tactical Bias?
-    momentum_aligned = (momentum * (1 if direction == "CALL" else -1) > 0.5)
-    tactical_aligned = (tact_bias == ("CALL_BIAS" if direction == "CALL" else "PUT_BIAS"))
-    is_trend_following = (regime == "TRENDING" and momentum_aligned and tactical_aligned)
-    
-    if not is_trend_following:
-        # Strict structural bias check ONLY applies when NOT already in a verified trending drop/rip
-        if direction == "CALL" and struct_bias == "PUT_BIAS": return "NO_TRADE", score, "BIAS_CONFLICT"
-        if direction == "PUT" and struct_bias == "CALL_BIAS": return "NO_TRADE", score, "BIAS_CONFLICT"
-
-    # Read-Only Cooldown Checks (Decrements handled at the very top of the loop)
-    is_cooldown, cooldown_reason = False, ""
-    if state.get("spike_cooldown", 0) > 0: is_cooldown, cooldown_reason = True, "SPIKE_COOLDOWN"
-    elif state.get("exit_cooldown", 0) > 0: is_cooldown, cooldown_reason = True, "EXIT_COOLDOWN"
-    elif t_min - state.get("last_trade_time", 0) < 15: is_cooldown, cooldown_reason = True, "MIN_GAP"
-
-    if is_cooldown:
-        last_dir = state.get("last_trade_dir", "NONE")
-        # 3. REVERSAL BYPASS: Shred the timeout blindfold if an elite setup appears
-        if last_dir != "NONE" and last_dir != direction and score >= 85: pass
-        else: return "NO_TRADE", score, cooldown_reason
-
-    vwap_diff_pct = (metrics.get("price", 0) - metrics.get("vwap", 0)) / metrics.get("vwap", 1) if metrics.get("vwap", 0) > 0 else 0
-    if direction == "CALL" and vwap_diff_pct < -0.001: return "NO_TRADE", score, "WRONG_VWAP_SIDE"
-    if direction == "PUT" and vwap_diff_pct > 0.001: return "NO_TRADE", score, "WRONG_VWAP_SIDE"
-
-    # 4. EXECUTION
-    if score < base_threshold: return "NO_TRADE", score, "SCORE_INSUFFICIENT"
-    return direction, score, "SCORING_MODEL"
-
-def should_hold(state, metrics):
-    if state.get("min_hold", 0) > 0:
-        state["min_hold"] -= 1
-        return True
-    if state.get("trend_lock", 0) > 0:
-        state["trend_lock"] -= 1
-        return True
-    trade = state.get("active_trade")
-    price, vwap = metrics.get("price", 0), metrics.get("vwap", 0)
-    if trade == "CALL" and price > vwap: return True
-    if trade == "PUT" and price < vwap: return True
-    return False
-
-def should_force_exit(state, pnl, metrics):
-    trade = state.get("active_trade")
-    medium_atr_opt = metrics.get("medium_atr", 15.0) * DELTA_ATM
-    # Medium ATR Macro Stop - Absolute mathematical floor of 15 Option Points
-    hard_stop_distance = max(medium_atr_opt * 2.0, 15.0) 
-    
-    if pnl < -hard_stop_distance: return True, "MACRO_STOP_HIT"
-
-    bars = state.get("bars_in_trade", 0)
-    if bars >= 15: # Given 15 mins to breathe before VWAP exits activate
-        vwap_diff_pct = (metrics.get("price", 0) - metrics.get("vwap", 0)) / metrics.get("vwap", 1) if metrics.get("vwap", 0) > 0 else 0
-        if trade == "CALL" and vwap_diff_pct < -0.0015: return True, "VWAP_BREAK"
-        if trade == "PUT" and vwap_diff_pct > 0.0015: return True, "VWAP_BREAK"
-
-    return False, ""
-
-def should_exit_structural(metrics, state, persistence):
-    trade = state.get("active_trade", "NO_TRADE")
-    price, vwap, momentum = metrics.get("price", 0), metrics.get("vwap", 0), metrics.get("momentum", 0)
-    if trade == "CALL" and price < vwap and momentum < 0 and persistence < 2: return True, "STRUCTURAL_EXIT"
-    if trade == "PUT" and price > vwap and momentum > 0 and persistence < 2: return True, "STRUCTURAL_EXIT"
-    return False, ""
-
-def should_exit_theta_bleed(state, pnl, metrics):
-    bars = state.get("bars_in_trade", 0)
-    # The Patience Window: Will not check for bleed until 45 mins have passed
-    if bars < 45: return False, ""
-
-    prices = metrics.get("prices", [])
-    if len(prices) >= 20:
-        recent_range = max(prices[-20:]) - min(prices[-20:])
-        if recent_range < (metrics.get("medium_atr", 15.0) * 1.5):
-            if pnl < (metrics.get("medium_atr", 15.0) * DELTA_ATM * 1.0):
-                return True, "THETA_BLEED_EXHAUSTION"
-    return False, ""
-
-def should_trail_profit(state, pnl, metrics):
-    medium_atr_opt = metrics.get("medium_atr", 15.0) * DELTA_ATM
-    max_profit = max(state.get("max_profit", 0.0), pnl)
-    state["max_profit"] = max_profit
-
-    # Never trail inside the noise floor
-    if max_profit < (medium_atr_opt * 1.0): return False, ""
-
-    # Proportional trails (allow trend to breathe through 2nd/3rd impulse legs)
-    if max_profit >= 30.0: trail_level = max_profit * 0.60
-    elif max_profit >= 15.0: trail_level = max_profit * 0.50
-    else: trail_level = max_profit - (medium_atr_opt * 2.0)
-
-    if pnl < trail_level: return True, "MACRO_TRAIL_HIT"
-    return False, ""
-
-def risk_block_active(state, metrics):
-    if state.get("consecutive_losses", 0) >= 3:
-        # Read-only here; decrement happens strictly in process_engine_step
-        if state.get("loss_cooldown_bars", 0) > 0:
-            if abs(metrics.get("momentum", 0)) > 1.5 and metrics.get("vol_spike", False) and metrics.get("range_10", 0) > 25: return False
-            return True
-        else:
-            state["consecutive_losses"] = 0
-    return False
-
-def detect_and_set_spike_cooldown(prices, state, fast_atr):
-    if len(prices) < 2: return
-    if abs(prices[-1] - prices[-2]) > fast_atr * 3:
-        state["spike_cooldown"] = 4
 
 def select_strike(spot, expected_move, direction):
     atm = round(spot / 50) * 50
-    if expected_move > 50: offset = 100
-    elif expected_move > 25: offset = 50
-    else: offset = 0
+    if expected_move > 50:
+        offset = 100
+    elif expected_move > 25:
+        offset = 50
+    else:
+        offset = 0
     return atm + offset if direction == "CALL" else atm - offset
+
 
 def reset_trade(state, pnl, current_time):
     state["daily_pnl"] = state.get("daily_pnl", 0.0) + pnl
     state["last_trade_dir"] = state.get("active_trade", "NONE")
+    state["last_trade_pnl"] = pnl
     state["active_trade"] = "NO_TRADE"
     state["bars_in_trade"] = 0
     state["max_profit"] = 0.0
     state["entry_spot"] = 0.0
-    state["trend_lock"] = 0
-    state["min_hold"] = 0
-    state["exit_cooldown"] = 5
-    
+    state["entry_reason"] = ""
+    state["trade_peak_spot"] = 0.0
+
+    # Post-exit cooldown: longer after losses to prevent churn
+    if pnl < -5:
+        state["exit_cooldown"] = 15
+    elif pnl < 0:
+        state["exit_cooldown"] = 8
+    else:
+        state["exit_cooldown"] = 5
+
     if pnl < 0:
         state["consecutive_losses"] = state.get("consecutive_losses", 0) + 1
-        state["loss_cooldown_bars"] = 30
-    elif pnl >= 5.0:
+    else:
         state["consecutive_losses"] = 0
 
+
+# =========================
+# REGIME DETECTION
+# =========================
+
+def detect_regime(metrics):
+    atr_pct = metrics.get("atr_pct", 0.0)
+    range_10 = metrics.get("range_10", 0.0)
+    momentum = abs(metrics.get("momentum", 0.0))
+    vol_ratio = metrics.get("vol_ratio", 1.0)
+
+    if atr_pct < 0.00015 and range_10 < 12:
+        return "LOW_VOL"
+    if range_10 >= 20 and momentum >= 0.45:
+        return "TRENDING"
+    if range_10 <= 14 and momentum <= 0.25 and vol_ratio < 1.15:
+        return "CHOPPY"
+    return "TRANSITION"
+
+
+# =========================
+# TREND CLASSIFICATION
+# =========================
+
+def classify_trend_state(metrics):
+    """
+    Classify the current trend direction and state.
+    Must require genuine displacement from VWAP - not micro-moves.
+    """
+    price = metrics.get("price", 0.0)
+    vwap = metrics.get("vwap", 0.0)
+    momentum = metrics.get("momentum", 0.0)
+    accel = metrics.get("accel", 0.0)
+    range_10 = metrics.get("range_10", 0.0)
+    vol_ratio = metrics.get("vol_ratio", 1.0)
+    prices = metrics.get("prices", [])
+
+    if len(prices) < 12 or vwap <= 0:
+        return "NONE", "NEUTRAL", 0
+
+    prev_10 = prices[-11:-1] if len(prices) >= 11 else prices[-10:]
+    prev_high_10 = max(prev_10)
+    prev_low_10 = min(prev_10)
+
+    vwap_dist = price - vwap
+    vwap_dist_abs = abs(vwap_dist)
+
+    above_vwap = price > vwap
+    below_vwap = price < vwap
+
+    fresh_up_break = price >= prev_high_10
+    fresh_down_break = price <= prev_low_10
+
+    up_pressure = 0
+    down_pressure = 0
+
+    # VWAP side with distance weighting
+    if above_vwap and vwap_dist_abs >= 10:
+        up_pressure += 25
+    elif above_vwap and vwap_dist_abs >= 5:
+        up_pressure += 15
+    elif above_vwap:
+        up_pressure += 8
+
+    if below_vwap and vwap_dist_abs >= 10:
+        down_pressure += 25
+    elif below_vwap and vwap_dist_abs >= 5:
+        down_pressure += 15
+    elif below_vwap:
+        down_pressure += 8
+
+    # Momentum
+    abs_mom = abs(momentum)
+    if momentum > 0:
+        if abs_mom >= 1.0:
+            up_pressure += 25
+        elif abs_mom >= 0.5:
+            up_pressure += 15
+        elif abs_mom >= 0.25:
+            up_pressure += 8
+    elif momentum < 0:
+        if abs_mom >= 1.0:
+            down_pressure += 25
+        elif abs_mom >= 0.5:
+            down_pressure += 15
+        elif abs_mom >= 0.25:
+            down_pressure += 8
+
+    # Range expansion
+    if range_10 >= 25:
+        if momentum > 0:
+            up_pressure += 10
+        elif momentum < 0:
+            down_pressure += 10
+    elif range_10 >= 18:
+        if momentum > 0:
+            up_pressure += 5
+        elif momentum < 0:
+            down_pressure += 5
+
+    # Volume
+    if vol_ratio > 1.2:
+        if momentum > 0:
+            up_pressure += 5
+        elif momentum < 0:
+            down_pressure += 5
+
+    # Breakout with range confirmation
+    if fresh_up_break and range_10 >= 18:
+        up_pressure += 10
+    if fresh_down_break and range_10 >= 18:
+        down_pressure += 10
+
+    # Acceleration
+    if accel > 0.3 and momentum > 0:
+        up_pressure += 5
+    if accel < -0.3 and momentum < 0:
+        down_pressure += 5
+
+    # Require clear dominance
+    if up_pressure >= down_pressure + 20:
+        trend_dir = "CALL"
+        strength = up_pressure
+    elif down_pressure >= up_pressure + 20:
+        trend_dir = "PUT"
+        strength = down_pressure
+    else:
+        return "NONE", "NEUTRAL", max(up_pressure, down_pressure)
+
+    # State classification
+    if trend_dir == "CALL":
+        if above_vwap and momentum > 0.8 and fresh_up_break and range_10 >= 20:
+            return "CALL", "TREND", strength
+        elif above_vwap and momentum > 0.4:
+            return "CALL", "EMERGING", strength
+        elif above_vwap:
+            return "CALL", "PULLBACK", strength
+    else:
+        if below_vwap and momentum < -0.8 and fresh_down_break and range_10 >= 20:
+            return "PUT", "TREND", strength
+        elif below_vwap and momentum < -0.4:
+            return "PUT", "EMERGING", strength
+        elif below_vwap:
+            return "PUT", "PULLBACK", strength
+
+    return trend_dir, "EXHAUSTION", strength
+
+
+def sentiment_boost(metrics, direction):
+    """Soft contextual boost."""
+    boost = 0
+    pcr = metrics.get("pcr", 1.0)
+    pcr_delta = metrics.get("pcr_delta", 0.0)
+    oi_bias = metrics.get("oi_bias", "NONE")
+
+    if direction == "CALL":
+        if pcr < 0.85:
+            boost += 5
+        if pcr_delta < -0.05:
+            boost += 5
+        if oi_bias == "CALL":
+            boost += 3
+    elif direction == "PUT":
+        if pcr > 1.05:
+            boost += 5
+        if pcr_delta > 0.05:
+            boost += 5
+        if oi_bias == "PUT":
+            boost += 3
+
+    return boost
+
+
+# =========================
+# ENTRY MODEL
+# =========================
+
+def get_trade_decision(metrics, regime, state, current_time):
+    t_min = current_time.hour * 60 + current_time.minute
+    price = metrics.get("price", 0.0)
+    vwap = metrics.get("vwap", 0.0)
+    momentum = metrics.get("momentum", 0.0)
+    prices = metrics.get("prices", [])
+    vol_ratio = metrics.get("vol_ratio", 1.0)
+    range_10 = metrics.get("range_10", 0.0)
+
+    # Hard blocks
+    if state.get("daily_pnl", 0.0) <= MAX_DAILY_DRAWDOWN:
+        return "NO_TRADE", 0, "CIRCUIT_BREAKER"
+    if t_min < 570:
+        return "NO_TRADE", 0, "PRE_TRADE_WINDOW"
+    if t_min >= 885:
+        return "NO_TRADE", 0, "POST_CUTOFF"
+    if regime == "LOW_VOL":
+        return "NO_TRADE", 0, "LOW_VOL"
+
+    # Max trades per day - trend following should be 1-3 trades
+    if state.get("daily_trades", 0) >= 3:
+        return "NO_TRADE", 0, "MAX_TRADES_REACHED"
+
+    # Consecutive loss block - after 2 consecutive losses, require very strong signal
+    consec = state.get("consecutive_losses", 0)
+    if consec >= 2:
+        if state.get("exit_cooldown", 0) > 0:
+            return "NO_TRADE", 0, "LOSS_COOLDOWN"
+
+    # Exit cooldown
+    if state.get("exit_cooldown", 0) > 0:
+        return "NO_TRADE", 0, "EXIT_COOLDOWN"
+
+    # Spike cooldown
+    if state.get("spike_cooldown", 0) > 0:
+        return "NO_TRADE", 0, "SPIKE_COOLDOWN"
+
+    # Minimum gap between trades
+    last_trade_time = state.get("last_trade_time", 0)
+    if last_trade_time > 0 and (t_min - last_trade_time) < 15:
+        return "NO_TRADE", 0, "MIN_GAP"
+
+    # Get trend classification
+    trend_dir, trend_state, trend_strength = classify_trend_state(metrics)
+    if trend_dir == "NONE":
+        return "NO_TRADE", trend_strength, "NO_CLEAR_TREND"
+
+    score = trend_strength + sentiment_boost(metrics, trend_dir)
+
+    # Tactical bias boost
+    tact_bias = metrics.get("tactical_bias", "NONE")
+    if trend_dir == "CALL" and tact_bias == "CALL_BIAS":
+        score += 5
+    elif trend_dir == "PUT" and tact_bias == "PUT_BIAS":
+        score += 5
+
+    # VWAP side check
+    if trend_dir == "CALL" and price <= vwap:
+        return "NO_TRADE", score, "WRONG_VWAP_SIDE"
+    if trend_dir == "PUT" and price >= vwap:
+        return "NO_TRADE", score, "WRONG_VWAP_SIDE"
+
+    # Minimum VWAP displacement - require real trend, not noise
+    vwap_dist = abs(price - vwap)
+    if vwap_dist < 10:
+        return "NO_TRADE", score, "INSUFFICIENT_DISPLACEMENT"
+
+    # Extension filter
+    ext_up = metrics.get("ext_up", False)
+    ext_down = metrics.get("ext_down", False)
+    if trend_dir == "CALL" and ext_up and abs(momentum) > 1.8 and vol_ratio < 1.1:
+        return "NO_TRADE", score, "OVEREXTENDED_UP"
+    if trend_dir == "PUT" and ext_down and abs(momentum) > 1.8 and vol_ratio < 1.1:
+        return "NO_TRADE", score, "OVEREXTENDED_DOWN"
+
+    # Same-direction re-entry: require fresh breakout
+    last_dir = state.get("last_trade_dir", "NONE")
+    if last_dir == trend_dir and len(prices) >= 10:
+        recent_high = max(prices[-10:])
+        recent_low = min(prices[-10:])
+        if trend_dir == "CALL" and price < recent_high:
+            return "NO_TRADE", score, "NO_FRESH_CONTINUATION"
+        if trend_dir == "PUT" and price > recent_low:
+            return "NO_TRADE", score, "NO_FRESH_CONTINUATION"
+
+    # Threshold based on regime
+    if regime == "TRENDING":
+        threshold = 65
+    elif regime == "TRANSITION":
+        threshold = 72
+    else:
+        threshold = 78
+
+    # Adjustments
+    if state.get("daily_pnl", 0.0) < -15:
+        threshold += 8
+    if consec >= 1:
+        threshold += 5
+
+    if trend_state == "TREND":
+        threshold -= 3
+    elif trend_state == "EMERGING":
+        threshold += 0
+    elif trend_state == "PULLBACK":
+        threshold += 8
+    else:
+        threshold += 10
+
+    if score < threshold:
+        return "NO_TRADE", score, "SCORE_INSUFFICIENT"
+
+    return trend_dir, score, f"{trend_state}_ENTRY"
+
+
+# =========================
+# EXIT MODEL - TREND FOLLOWING
+# =========================
+# Philosophy:
+# 1. Give the trade MAXIMUM room to develop
+# 2. Only exit on genuine trend reversal signals
+# 3. For mature profits, protect against catastrophic giveback
+#    but use ABSOLUTE points, not percentages of small numbers
+# 4. Never exit just because profit pulled back from a small peak
+
+def catastrophic_stop_hit(state, pnl, metrics):
+    """
+    Hard stop - absolute maximum loss per trade.
+    This is the only tight stop. It prevents catastrophic single-trade loss.
+    """
+    medium_atr_opt = metrics.get("medium_atr", 15.0) * DELTA_ATM
+    hard_stop = max(medium_atr_opt * 2.5, 15.0)
+    return pnl < -hard_stop
+
+
+def trend_reversal_exit(state, metrics):
+    """
+    The PRIMARY exit mechanism for trend-following.
+
+    Exit when the trend has ACTUALLY reversed, not on normal pullbacks.
+
+    A trend reversal requires MULTIPLE confirming signals:
+    1. Price has crossed VWAP (the anchor has shifted)
+    2. Momentum is sustained against the position (not just a spike)
+    3. The adverse move has persistence (multiple bars)
+
+    This is deliberately loose for small-profit trades because
+    the whole point is to let winners run.
+    """
+    trade = state.get("active_trade", "NO_TRADE")
+    price = metrics.get("price", 0.0)
+    vwap = metrics.get("vwap", 0.0)
+    momentum = metrics.get("momentum", 0.0)
+    bars = state.get("bars_in_trade", 0)
+
+    if bars < 3:
+        return False, "TOO_EARLY"
+
+    # Count consecutive adverse momentum bars
+    mom_hist = state.get("momentum_history", [])
+    adverse_bars = 0
+    if trade == "CALL":
+        for m in reversed(mom_hist):
+            if m < -0.1:
+                adverse_bars += 1
+            else:
+                break
+    elif trade == "PUT":
+        for m in reversed(mom_hist):
+            if m > 0.1:
+                adverse_bars += 1
+            else:
+                break
+
+    # Has price crossed VWAP?
+    crossed_vwap = False
+    if trade == "CALL" and price < vwap:
+        crossed_vwap = True
+    elif trade == "PUT" and price > vwap:
+        crossed_vwap = True
+
+    # REVERSAL CONDITION: Price crossed VWAP + sustained adverse momentum
+    # This is the core trend-following exit signal
+    if crossed_vwap and adverse_bars >= 3:
+        return True, "TREND_REVERSED_VWAP_CROSS"
+
+    # STRONG REVERSAL: Even without VWAP cross, if momentum is very strong
+    # against us for many bars, the trend structure has broken
+    if adverse_bars >= 5 and abs(momentum) > 0.8:
+        return True, "TREND_REVERSED_MOMENTUM"
+
+    return False, "TREND_INTACT"
+
+
+def mature_profit_protection(state, pnl, metrics):
+    """
+    For trades that have built SIGNIFICANT profit (>15 points option PnL),
+    protect against giving back too much.
+
+    Key principle: Use ABSOLUTE point giveback, not percentage.
+    A trade at +30 giving back to +15 is still a great trade.
+    A trade at +30 giving back to -5 is a disaster.
+
+    Tiers:
+    - Profit 15-25: Allow up to 15 points giveback from peak
+    - Profit 25-35: Allow up to 12 points giveback from peak
+    - Profit 35+:   Allow up to 10 points giveback from peak
+
+    These are generous limits that only trigger on genuine reversals,
+    not normal trend pullbacks.
+    """
+    max_profit = state.get("max_profit", 0.0)
+    bars = state.get("bars_in_trade", 0)
+
+    if max_profit < 15.0:
+        # Not mature enough for profit protection
+        # Let the trend reversal exit handle it
+        return False, "NOT_MATURE"
+
+    giveback = max_profit - pnl
+
+    # Also check: never let a mature trade go negative
+    if max_profit >= 15.0 and pnl <= 0:
+        return True, "MATURE_GONE_NEGATIVE"
+
+    if max_profit >= 35.0:
+        if giveback >= 15.0:
+            return True, "TIER3_GIVEBACK_15"
+    elif max_profit >= 25.0:
+        if giveback >= 18.0:
+            return True, "TIER2_GIVEBACK_18"
+    elif max_profit >= 15.0:
+        if giveback >= 20.0:
+            return True, "TIER1_GIVEBACK_20"
+
+    return False, "PROFIT_OK"
+
+
+def dead_trade_exit(state, pnl, metrics):
+    """
+    Exit trades that go nowhere after sufficient time.
+    But be patient - trend trades can consolidate before moving.
+    """
+    bars = state.get("bars_in_trade", 0)
+    max_profit = state.get("max_profit", 0.0)
+    trade = state.get("active_trade", "NO_TRADE")
+    momentum = metrics.get("momentum", 0.0)
+
+    # After 10 bars with no profit and adverse momentum
+    if bars >= 10 and max_profit < 1.0:
+        if trade == "CALL" and momentum < -0.3:
+            return True
+        if trade == "PUT" and momentum > 0.3:
+            return True
+
+    # After 15 bars with no meaningful profit at all
+    if bars >= 15 and max_profit < 2.0:
+        return True
+
+    return False
+
+
+# =========================
+# MAIN ENGINE
+# =========================
+
 def process_engine_step(metrics, state, current_time, force_exit_only=False):
-    # =========================================================================
-    # 1. UNCONDITIONAL CLOCK TICKS (THE BUG FIX)
-    # Cooldowns are decremented at the absolute top of the loop so they never freeze 
-    # when a BIAS_CONFLICT or LOW_VOL triggers an early return.
-    # =========================================================================
+    # Decrement cooldowns
     if state.get("spike_cooldown", 0) > 0:
         state["spike_cooldown"] -= 1
     if state.get("exit_cooldown", 0) > 0:
         state["exit_cooldown"] -= 1
-    if state.get("loss_cooldown_bars", 0) > 0:
-        state["loss_cooldown_bars"] -= 1
 
-    price, momentum = metrics.get("price", 0), metrics.get("momentum", 0)
+    price = metrics.get("price", 0)
+    momentum = metrics.get("momentum", 0)
     t_min = current_time.hour * 60 + current_time.minute
-    
+
+    update_session_tracking(state, price)
+
+    # EOD square-off
     if t_min >= 915 and state.get("active_trade", "NO_TRADE") != "NO_TRADE":
         pnl = compute_pnl(state.get("entry_spot", price), price, state["active_trade"])
         reset_trade(state, pnl, current_time)
         return {"action": "EXIT", "signal": "NO_TRADE", "reason": "EOD_SQUARE_OFF", "score": 0}
-        
+
+    # Update momentum history
     hist = state.get("momentum_history", [])
     hist.append(momentum)
-    if len(hist) > 10: hist.pop(0)
+    if len(hist) > 15:
+        hist.pop(0)
     state["momentum_history"] = hist
     persistence = count_same_sign(hist)
 
-    detect_and_set_spike_cooldown(metrics.get("prices", []), state, metrics.get("fast_atr", 15.0))
+    # Detect regime
     regime = detect_regime(metrics)
     metrics["regime"] = regime
 
     active_trade = state.get("active_trade", "NO_TRADE")
 
+    # No-trade in low vol when flat
     if regime == "LOW_VOL" and active_trade == "NO_TRADE":
         return {"action": "NO_TRADE", "signal": "NO_TRADE", "reason": "LOW_VOL", "score": 0}
 
+    # ========== ACTIVE TRADE MANAGEMENT ==========
     if active_trade != "NO_TRADE":
         entry_price = state.get("entry_spot", price)
         pnl = compute_pnl(entry_price, price, active_trade)
-        
-        exit_triggered, exit_reason = should_force_exit(state, pnl, metrics)
-        if exit_triggered:
-            reset_trade(state, pnl, current_time)
-            return {"action": "EXIT", "signal": "NO_TRADE", "reason": exit_reason, "score": 0}
-
-        exit_triggered, exit_reason = should_exit_structural(metrics, state, persistence)
-        if exit_triggered:
-            reset_trade(state, pnl, current_time)
-            return {"action": "EXIT", "signal": "NO_TRADE", "reason": exit_reason, "score": 0}
-
-        exit_triggered, exit_reason = should_exit_theta_bleed(state, pnl, metrics)
-        if exit_triggered:
-            reset_trade(state, pnl, current_time)
-            return {"action": "EXIT", "signal": "NO_TRADE", "reason": exit_reason, "score": 0}
-
-        exit_triggered, exit_reason = should_trail_profit(state, pnl, metrics)
-        if exit_triggered:
-            reset_trade(state, pnl, current_time)
-            return {"action": "EXIT", "signal": "NO_TRADE", "reason": exit_reason, "score": 0}
-
-        oi_bias = metrics.get("oi_bias", "NONE")
-        if active_trade == "PUT" and oi_bias == "PUT": state["trend_lock"] = max(state.get("trend_lock", 0), 2)
-        if active_trade == "CALL" and oi_bias == "CALL": state["trend_lock"] = max(state.get("trend_lock", 0), 2)
-
-        if not should_hold(state, metrics) and state.get("min_hold", 0) <= 0 and state.get("trend_lock", 0) <= 0:
-            reset_trade(state, pnl, current_time)
-            return {"action": "EXIT", "signal": "NO_TRADE", "reason": "HOLD_FAILED", "score": 0}
-            
         state["bars_in_trade"] = state.get("bars_in_trade", 0) + 1
-        return {"action": "HOLD", "signal": active_trade, "reason": "HOLDING", "score": 0}
 
+        # Track max profit
+        state["max_profit"] = max(state.get("max_profit", 0.0), pnl)
+        max_profit = state["max_profit"]
+
+        # Track peak spot
+        if active_trade == "CALL":
+            state["trade_peak_spot"] = max(state.get("trade_peak_spot", price), price)
+        elif active_trade == "PUT":
+            cur_low = state.get("trade_peak_spot", price)
+            if cur_low == 0 or price < cur_low:
+                state["trade_peak_spot"] = price
+
+        # EXIT CHECK 1: Catastrophic hard stop (only for runaway losses)
+        if catastrophic_stop_hit(state, pnl, metrics):
+            reset_trade(state, pnl, current_time)
+            return {"action": "EXIT", "signal": "NO_TRADE", "reason": "HARD_STOP", "score": 0}
+
+        # EXIT CHECK 2: Mature profit protection (only for large profits)
+        should_exit, exit_reason = mature_profit_protection(state, pnl, metrics)
+        if should_exit:
+            reset_trade(state, pnl, current_time)
+            return {"action": "EXIT", "signal": "NO_TRADE", "reason": exit_reason, "score": 0}
+
+        # EXIT CHECK 3: Trend reversal (the primary exit)
+        reversed_flag, rev_reason = trend_reversal_exit(state, metrics)
+        if reversed_flag:
+            reset_trade(state, pnl, current_time)
+            return {"action": "EXIT", "signal": "NO_TRADE", "reason": rev_reason, "score": 0}
+
+        # EXIT CHECK 4: Dead trade (trade going nowhere)
+        if dead_trade_exit(state, pnl, metrics):
+            reset_trade(state, pnl, current_time)
+            return {"action": "EXIT", "signal": "NO_TRADE", "reason": "DEAD_TRADE", "score": 0}
+
+        # HOLD
+        hold_reason = "HOLDING"
+        if pnl > 20:
+            hold_reason = "HOLDING_MATURE"
+        elif pnl > 10:
+            hold_reason = "HOLDING_STRONG"
+        elif pnl > 3:
+            hold_reason = "HOLDING_CONFIRMED"
+
+        return {"action": "HOLD", "signal": active_trade, "reason": hold_reason, "score": 0}
+
+    # ========== NEW ENTRY LOGIC ==========
     else:
-        if force_exit_only: return {"action": "NO_TRADE", "signal": "NO_TRADE", "reason": "POST_CUTOFF", "score": 0}
-        if risk_block_active(state, metrics): return {"action": "NO_TRADE", "signal": "NO_TRADE", "reason": "RISK_BLOCK", "score": 0}
+        if force_exit_only:
+            return {"action": "NO_TRADE", "signal": "NO_TRADE", "reason": "POST_CUTOFF", "score": 0}
 
         decision, score, reason = get_trade_decision(metrics, regime, state, current_time)
 
@@ -317,15 +620,18 @@ def process_engine_step(metrics, state, current_time, force_exit_only=False):
             state["entry_spot"] = price
             state["max_profit"] = 0.0
             state["bars_in_trade"] = 0
-            state["min_hold"] = 2
-            state["trend_lock"] = 3
             state["daily_trades"] = state.get("daily_trades", 0) + 1
-            state["last_trade_time"] = current_time.hour * 60 + current_time.minute
-            
-            # Note: We reset exit_cooldown on entry, but we don't decrement it here anymore.
+            state["last_trade_time"] = t_min
             state["exit_cooldown"] = 0
-            
-            strike = select_strike(price, metrics.get("expected_move", 0), decision)
-            return {"action": "ENTRY", "signal": decision, "reason": reason, "strike": strike, "score": score}
+            state["trade_peak_spot"] = price
 
-    return {"action": "NO_TRADE", "signal": "NO_TRADE", "reason": reason, "score": score}
+            strike = select_strike(price, metrics.get("expected_move", 0), decision)
+            return {
+                "action": "ENTRY",
+                "signal": decision,
+                "reason": reason,
+                "strike": strike,
+                "score": score,
+            }
+
+    return {"action": "NO_TRADE", "signal": "NO_TRADE", "reason": "NO_TRADE", "score": 0}

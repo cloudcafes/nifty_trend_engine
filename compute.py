@@ -74,12 +74,12 @@ def get_dual_bias(prices):
         if last_bar_move > 0.003:  
             return "NONE", "NONE" 
 
-    # 1. STRUCTURAL BIAS: Slow, macro anchor (30 to 90 bars)
+    # Structural Bias: Slow Macro Anchor (Linear Regression)
     struct_lookback = max(30, min(len(prices), 90))
     struct_slope = linear_regression_slope(prices[-struct_lookback:]) 
     struct_bias = "CALL_BIAS" if struct_slope > 0.05 else ("PUT_BIAS" if struct_slope < -0.05 else "NONE")
     
-    # 2. TACTICAL BIAS: Fast, responsive 9-EMA for V-Shape Reversals (The Regression Lag Fix)
+    # Tactical Bias: Fast 9-EMA to catch V-Shape Reversals instantly
     ema_9 = compute_ema(prices[-15:], 9)
     current_price = prices[-1]
     
@@ -128,7 +128,10 @@ def compute_metrics(snapshots, state):
     move_progress = range_5_dir / expected_move if expected_move > 0 else 0.0
 
     ema_10 = compute_ema(prices, 10)
-    ext_distance = atrs['fast'] * 1.5
+    
+    # Extension Threshold: Calculated using Medium ATR (Filters out 1-minute bid/ask noise)
+    ext_distance = atrs['medium'] * 1.5
+    
     overextended_up = (price > ema_10 + ext_distance)
     overextended_down = (price < ema_10 - ext_distance)
 
