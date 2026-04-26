@@ -1,0 +1,31 @@
+how do you see performance of the nifty options analysis program performance from the attached pasted text?
+
+I want you to analyze attached script for nifty option chain calculations and recommend what right and what is wrong based on your above recommendations and analysis
+
+I have incorporated all your suggested changes in the attached code. Please verify now for nifty option intraday trade signal generator and suggest for any flaws or improvement for accuracy.
+  
+do you think the below suggestions regarding attached scripts are really helful in real world scenario and practical to implement-
+
+
+I want you to analyze attached script for nifty option chain calculations and recommend what right and what is wrong
+
+provide me logic and pseudocode for all the fixes which should be implemented to make this script a market ready script for nifty trading 
+
+do you think the attached script is now fine to start with nifty options trading
+
+Implement the below fixes and give me complete working fixed eror free and working code script after applying all the below all fixes code. do not change the DB name or scripts name and keep it to plane, for version updates you can add comments.
+
+I have incorporated all your suggested changes in the attached code. please verify in terms of fully tuned NIFTY parameter set adapting to parameter switching (trending vs choppy days).
+
+analyze logs.txt and tell how is the python engine performance as per the attached all .py scripts.
+this python enginer is designed specifically for analyzing nse nifty option chain for intraday.
+I want you only analyze signalling in the logs and tradable information trend analysis trade prediction
+
+analyze again from scratch for new logic and any wrong calculations  in terms of fully tuned NIFTY parameter set adapting to parameter switching (trending vs choppy days)
+
+are the attached fixes valid for attached script and will they help to fix right trend detection and right trade detection at right time. Tell for eachrecommended fix- needed/not needed/critical/high/medium in tabular format summary
+
+
+Apply all the fixes and generate the real logic guide omly for sectoral index stock selection for swing trading completely again without capital allocation and backtest.
+
+Audit the guide only from scratch above for issues related to sectoral index stock selection for swing trading and identify gaps without capital allocation and backtest.

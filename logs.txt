@@ -1,0 +1,3708 @@
+Microsoft Windows [Version 10.0.20348.2113]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Administrator>cd C:\Users\Administrator\Desktop\nifty_trend_engine
+
+C:\Users\Administrator\Desktop\nifty_trend_engine>code .
+
+C:\Users\Administrator\Desktop\nifty_trend_engine>python main.py
+Nifty Trend Engine v4.0 Started (State-Driven Execution Engine)
+
+SMOOTH_SPOT:[12061.3, 16324.3, 19095.2, 20893.5]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:4569.25 (th:1613.37):Delta momentum
+SLOW_SLOPE:5395.80 (th:3226.75):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 16093.74
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:22 | 24233 | TREND   | FORMING | CALL            | EARLY_TREND  | 2.75/4
+*** TRADE TRIGGERED: HIGH_PROB_CALL (Conf: 2.75/4) ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[16324.3, 19095.2, 20893.5, 13580.8]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-5514.39 (th:1619.89):Delta momentum
+SLOW_SLOPE:-4975.12 (th:3239.77):Structural flow
+OI_LABEL:NEUTRAL | ATR: 16158.85
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:23 | 0 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[19095.2, 20893.5, 13580.8, 17303.9]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-3589.64 (th:1619.60):Delta momentum
+SLOW_SLOPE:5242.54 (th:3239.20):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 16155.98
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:24 | 24218 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[20893.5, 13580.8, 17303.9, 19724.1]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:6143.35 (th:1215.69):Delta momentum
+SLOW_SLOPE:3399.86 (th:2431.37):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 12116.87
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:25 | 24219 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[13580.8, 17303.9, 19724.1, 21294.9]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:3990.97 (th:811.78):Delta momentum
+SLOW_SLOPE:2199.67 (th:1623.57):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8077.84
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[17303.9, 19724.1, 21294.9, 22314.3]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:2590.19 (th:811.86):Delta momentum
+SLOW_SLOPE:1420.81 (th:1623.71):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8078.55
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:27 | 24208 | TREND   | MATURE  | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[19724.1, 21294.9, 22314.3, 22977.7]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:1682.86 (th:811.76):Delta momentum
+SLOW_SLOPE:9396.92 (th:1623.52):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8077.58
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:28 | 24210 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[21294.9, 22314.3, 22977.7, 23408.9]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:1094.57 (th:407.87):Delta momentum
+SLOW_SLOPE:6105.02 (th:815.74):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4038.70
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:29 | 24210 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[22314.3, 22977.7, 23408.9, 23683.1]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:705.40 (th:4.52):Delta momentum
+SLOW_SLOPE:3958.97 (th:9.05):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.23
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+*** 30-MINUTE PERIODIC AI UPDATE: 09:30 ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[22842.1, 23320.8, 23625.8, 23824.1]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:503.35 (th:4.51):Delta momentum
+SLOW_SLOPE:2850.23 (th:9.02):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.11
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:31 | 24192 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[23458.6, 23715.4, 23882.3, 23987.9]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:272.52 (th:4.53):Delta momentum
+SLOW_SLOPE:1555.97 (th:9.07):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.33
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:32 | 24184 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[23577.6, 23792.7, 23929.7, 24018.8]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:226.05 (th:4.47):Delta momentum
+SLOW_SLOPE:1290.89 (th:8.93):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.65
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:33 | 24184 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[23930.6, 24019.3, 24077.0, 24113.5]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:94.20 (th:4.48):Delta momentum
+SLOW_SLOPE:540.64 (th:8.96):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.81
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:34 | 24181 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24019.3, 24077.0, 24113.5, 24137.0]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:59.98 (th:4.49):Delta momentum
+SLOW_SLOPE:347.34 (th:8.98):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.90
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:35 | 24181 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24077.0, 24113.5, 24137.0, 24149.4]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:35.91 (th:4.34):Delta momentum
+SLOW_SLOPE:218.88 (th:8.68):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.39
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:PUT | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:36 | 24172 | TREND   | MATURE  | PUT             | BREAKOUT     | 4/4
+*** TRADE TRIGGERED: HIGH_PROB_PUT (Conf: 4/4) ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[23975.7, 24047.4, 24091.2, 24118.3]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:70.90 (th:4.40):Delta momentum
+SLOW_SLOPE:425.31 (th:8.80):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.00
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:37 | 24169 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24185.2, 24180.7, 24176.5, 24175.0]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-5.73 (th:4.32):Delta momentum
+SLOW_SLOPE:-16.01 (th:8.63):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:38 | 24172 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24180.7, 24176.5, 24175.0, 24174.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-2.55 (th:4.31):Delta momentum
+SLOW_SLOPE:-13.62 (th:8.63):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.14
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:39 | 24172 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24176.5, 24174.9, 24174.0, 24167.4]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-7.56 (th:4.55):Delta momentum
+SLOW_SLOPE:-17.69 (th:9.09):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.46
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:PUT | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24174.9, 24173.9, 24167.4, 24163.1]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-10.82 (th:4.54):Delta momentum
+SLOW_SLOPE:-17.47 (th:9.07):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.37
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:41 | 24155 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24173.9, 24167.4, 24163.1, 24166.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-1.00 (th:4.69):Delta momentum
+SLOW_SLOPE:-10.09 (th:9.37):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.86
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:42 | 24172 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24167.4, 24163.1, 24166.4, 24168.5]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:5.39 (th:4.62):Delta momentum
+SLOW_SLOPE:-6.43 (th:9.25):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.25
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:43 | 24172 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24163.0, 24166.3, 24168.5, 24174.6]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:8.26 (th:4.79):Delta momentum
+SLOW_SLOPE:0.87 (th:9.59):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 7.94
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:44 | 24186 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24166.3, 24168.5, 24174.6, 24178.6]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:10.10 (th:4.79):Delta momentum
+SLOW_SLOPE:11.33 (th:9.59):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 7.94
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:45 | 24186 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24168.4, 24174.6, 24178.5, 24189.0]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:14.49 (th:4.89):Delta momentum
+SLOW_SLOPE:26.14 (th:9.78):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.89
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:46 | 24209 | TREND   | EXHAUSTION | CALL            | BREAKOUT     | 2.75/4
+*** TRADE TRIGGERED: HIGH_PROB_CALL (Conf: 2.75/4) ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24174.6, 24178.5, 24189.0, 24195.7]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:17.19 (th:4.90):Delta momentum
+SLOW_SLOPE:29.48 (th:9.79):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.96
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:47 | 24208 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24178.5, 24189.0, 24195.7, 24205.0]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:16.01 (th:4.84):Delta momentum
+SLOW_SLOPE:36.66 (th:9.69):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:48 | 24222 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24189.0, 24195.7, 24205.0, 24211.1]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:15.38 (th:4.84):Delta momentum
+SLOW_SLOPE:36.58 (th:9.69):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:49 | 24222 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24195.7, 24205.0, 24211.1, 24208.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:3.07 (th:4.95):Delta momentum
+SLOW_SLOPE:29.67 (th:9.90):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 9.51
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:50 | 24202 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24205.0, 24211.1, 24208.1, 24205.3]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-5.80 (th:4.99):Delta momentum
+SLOW_SLOPE:16.35 (th:9.98):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 9.92
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:51 | 24200 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24211.1, 24208.1, 24205.3, 24199.1]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-8.98 (th:4.82):Delta momentum
+SLOW_SLOPE:3.41 (th:9.64):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.22
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:52 | 24188 | TREND   | EXHAUSTION | PUT             | EARLY_TREND  | 3/4
+*** TRADE TRIGGERED: HIGH_PROB_PUT (Conf: 3/4) ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24208.1, 24205.3, 24199.1, 24195.5]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-9.77 (th:4.83):Delta momentum
+SLOW_SLOPE:-9.52 (th:9.67):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.34
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:53 | 24189 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24205.2, 24199.0, 24195.5, 24199.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:0.32 (th:4.89):Delta momentum
+SLOW_SLOPE:-11.50 (th:9.79):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.94
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:54 | 24207 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24199.0, 24195.5, 24199.4, 24201.9]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:6.44 (th:4.89):Delta momentum
+SLOW_SLOPE:-6.04 (th:9.79):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.94
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:55 | 24207 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24195.6, 24199.4, 24201.9, 24207.0]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:7.61 (th:4.73):Delta momentum
+SLOW_SLOPE:1.63 (th:9.46):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 7.28
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:56 | 24216 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24199.4, 24201.9, 24207.0, 24210.5]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:8.57 (th:4.69):Delta momentum
+SLOW_SLOPE:11.31 (th:9.39):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.95
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:57 | 24217 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24202.0, 24207.1, 24210.5, 24212.8]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:5.70 (th:4.49):Delta momentum
+SLOW_SLOPE:17.04 (th:8.98):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.88
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:58 | 24217 | TREND   | EXHAUSTION | CALL            | EARLY_TREND  | 2.75/4
+*** TRADE TRIGGERED: HIGH_PROB_CALL (Conf: 2.75/4) ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24207.1, 24210.5, 24212.8, 24214.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:3.97 (th:4.48):Delta momentum
+SLOW_SLOPE:14.96 (th:8.96):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.82
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+09:59 | 24218 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0.75/4
+SMOOTH_SPOT:[24210.7, 24212.9, 24214.6, 24212.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-0.08 (th:4.32):Delta momentum
+SLOW_SLOPE:10.47 (th:8.64):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.22
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:00 | 24210 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+*** 30-MINUTE PERIODIC AI UPDATE: 10:00 ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24212.9, 24214.6, 24212.8, 24211.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-2.92 (th:4.32):Delta momentum
+SLOW_SLOPE:4.36 (th:8.64):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.22
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:01 | 24210 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24214.6, 24212.8, 24211.7, 24210.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.93 (th:4.16):Delta momentum
+SLOW_SLOPE:0.06 (th:8.31):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.57
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:02 | 24210 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24212.8, 24211.7, 24210.9, 24210.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.25 (th:4.15):Delta momentum
+SLOW_SLOPE:-2.57 (th:8.30):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.49
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:03 | 24210 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24211.6, 24210.8, 24210.4, 24209.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.24 (th:4.17):Delta momentum
+SLOW_SLOPE:-4.78 (th:8.34):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.72
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:04 | 24208 | RANGE   | IDLE    | NO_TRADE        | NONE         | 1/4
+SMOOTH_SPOT:[24210.8, 24210.4, 24209.6, 24209.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.80 (th:4.18):Delta momentum
+SLOW_SLOPE:-3.08 (th:8.36):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.82
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:05 | 24210 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24210.3, 24209.5, 24209.5, 24209.5]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.02 (th:4.04):Delta momentum
+SLOW_SLOPE:-1.85 (th:8.09):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:06 | 24210 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.5, 24209.5, 24209.5, 24209.5]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.02 (th:4.04):Delta momentum
+SLOW_SLOPE:-1.22 (th:8.09):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:07 | 24210 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.6, 24209.6, 24209.6, 24209.5]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.05 (th:4.04):Delta momentum
+SLOW_SLOPE:-1.00 (th:8.09):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:08 | 24210 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.6, 24209.6, 24209.5, 24209.1]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.50 (th:4.07):Delta momentum
+SLOW_SLOPE:-0.65 (th:8.13):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.67
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:09 | 24208 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.6, 24209.6, 24209.1, 24208.8]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.82 (th:4.04):Delta momentum
+SLOW_SLOPE:-1.01 (th:8.09):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:10 | 24208 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.6, 24209.1, 24208.8, 24208.5]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.54 (th:4.02):Delta momentum
+SLOW_SLOPE:-1.14 (th:8.04):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.22
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:11 | 24208 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.1, 24208.8, 24208.5, 24208.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.12 (th:4.04):Delta momentum
+SLOW_SLOPE:-0.74 (th:8.09):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:12 | 24210 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24208.8, 24208.5, 24208.9, 24208.6]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.08 (th:4.07):Delta momentum
+SLOW_SLOPE:-0.96 (th:8.13):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.67
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:13 | 24208 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24208.5, 24208.8, 24208.6, 24208.4]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.40 (th:4.07):Delta momentum
+SLOW_SLOPE:-0.53 (th:8.13):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.67
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:14 | 24208 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24208.8, 24208.6, 24208.4, 24208.3]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.26 (th:4.04):Delta momentum
+SLOW_SLOPE:-0.34 (th:8.09):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:15 | 24208 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24208.6, 24208.4, 24208.3, 24220.2]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:11.75 (th:4.61):Delta momentum
+SLOW_SLOPE:11.69 (th:9.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.12
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24208.4, 24208.3, 24220.2, 24227.6]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:19.27 (th:4.63):Delta momentum
+SLOW_SLOPE:18.77 (th:9.25):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.26
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:17 | 24241 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24208.3, 24220.2, 24227.6, 24236.5]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:16.31 (th:4.80):Delta momentum
+SLOW_SLOPE:27.91 (th:9.59):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 7.97
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:18 | 24253 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24220.2, 24227.6, 24236.5, 24242.2]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:14.54 (th:4.78):Delta momentum
+SLOW_SLOPE:33.70 (th:9.56):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 7.80
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:19 | 24253 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24227.6, 24236.5, 24242.2, 24247.1]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:10.55 (th:4.84):Delta momentum
+SLOW_SLOPE:38.71 (th:9.68):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.38
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24236.5, 24242.2, 24247.1, 24249.9]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:7.73 (th:4.85):Delta momentum
+SLOW_SLOPE:29.69 (th:9.71):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.55
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:21 | 24255 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24242.2, 24247.1, 24249.9, 24255.2]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:8.11 (th:4.45):Delta momentum
+SLOW_SLOPE:27.54 (th:8.90):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.51
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:22 | 24265 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24247.0, 24249.9, 24255.2, 24258.5]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:8.58 (th:4.44):Delta momentum
+SLOW_SLOPE:21.98 (th:8.89):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.43
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:23 | 24265 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24249.9, 24255.2, 24258.5, 24259.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:4.26 (th:4.31):Delta momentum
+SLOW_SLOPE:17.28 (th:8.61):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.07
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:24 | 24261 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24255.2, 24258.5, 24259.4, 24260.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:1.58 (th:4.30):Delta momentum
+SLOW_SLOPE:13.00 (th:8.60):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.01
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:25 | 24261 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24258.5, 24259.4, 24260.0, 24261.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:2.51 (th:4.31):Delta momentum
+SLOW_SLOPE:12.04 (th:8.63):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:26 | 24265 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0.75/4
+SMOOTH_SPOT:[24259.4, 24260.0, 24261.9, 24263.2]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:3.12 (th:4.30):Delta momentum
+SLOW_SLOPE:8.02 (th:8.59):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.97
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:27 | 24265 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24260.0, 24261.9, 24263.2, 24262.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.46 (th:4.21):Delta momentum
+SLOW_SLOPE:3.93 (th:8.42):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.08
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:28 | 24261 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24261.9, 24263.2, 24262.4, 24261.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.28 (th:4.20):Delta momentum
+SLOW_SLOPE:2.47 (th:8.40):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.02
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:29 | 24261 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24263.4, 24262.5, 24262.0, 24262.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.50 (th:4.16):Delta momentum
+SLOW_SLOPE:1.51 (th:8.33):Structural flow
+OI_LABEL:NEUTRAL | ATR: 1.65
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:30 | 24262 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+*** 30-MINUTE PERIODIC AI UPDATE: 10:30 ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24262.5, 24262.0, 24262.0, 24262.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.36 (th:4.18):Delta momentum
+SLOW_SLOPE:0.10 (th:8.36):Structural flow
+OI_LABEL:NEUTRAL | ATR: 1.78
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:31 | 24263 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24262.0, 24262.1, 24262.4, 24265.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:3.48 (th:4.25):Delta momentum
+SLOW_SLOPE:2.03 (th:8.50):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.50
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:32 | 24271 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24262.1, 24262.3, 24265.5, 24267.9]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:5.52 (th:4.26):Delta momentum
+SLOW_SLOPE:5.26 (th:8.53):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.62
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:CALL | CONFIDENCE:2/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24262.4, 24265.5, 24267.9, 24266.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: FORMING (UP)
+FAST_SLOPE:0.74 (th:4.34):Delta momentum
+SLOW_SLOPE:4.22 (th:8.67):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.35
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:34 | 24263 | RANGE   | FORMING | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24265.5, 24267.9, 24266.3, 24265.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-2.61 (th:4.34):Delta momentum
+SLOW_SLOPE:3.19 (th:8.67):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.35
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:35 | 24263 | RANGE   | FORMING | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24267.9, 24266.3, 24265.3, 24264.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-1.96 (th:4.33):Delta momentum
+SLOW_SLOPE:1.87 (th:8.66):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.28
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:36 | 24263 | RANGE   | FORMING | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24266.3, 24265.3, 24264.4, 24262.2]:EMA filtered
+REGIME:RANGE | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-3.10 (th:4.39):Delta momentum
+SLOW_SLOPE:-3.44 (th:8.78):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.89
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:37 | 24258 | RANGE   | FORMING | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24265.3, 24264.3, 24262.2, 24258.0]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-6.33 (th:4.38):Delta momentum
+SLOW_SLOPE:-9.86 (th:8.76):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.78
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:38 | 24250 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24264.3, 24262.2, 24258.0, 24255.3]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-6.86 (th:4.37):Delta momentum
+SLOW_SLOPE:-10.97 (th:8.73):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.65
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:39 | 24250 | TREND   | MATURE  | PUT             | CONTINUATION | 3/4
+*** TRADE TRIGGERED: HIGH_PROB_PUT (Conf: 3/4) ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24262.2, 24258.0, 24255.3, 24254.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-3.19 (th:4.28):Delta momentum
+SLOW_SLOPE:-10.47 (th:8.56):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.78
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:40 | 24254 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24258.0, 24255.3, 24254.8, 24254.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-0.80 (th:4.28):Delta momentum
+SLOW_SLOPE:-9.85 (th:8.56):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.78
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:41 | 24254 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24255.3, 24254.8, 24254.5, 24251.7]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-3.08 (th:4.39):Delta momentum
+SLOW_SLOPE:-10.39 (th:8.78):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.89
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:42 | 24247 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 1/4
+SMOOTH_SPOT:[24254.8, 24254.5, 24251.7, 24249.9]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-4.57 (th:4.31):Delta momentum
+SLOW_SLOPE:-8.05 (th:8.63):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.14
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:PUT | CONFIDENCE:2/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24254.5, 24251.8, 24249.9, 24249.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.86 (th:4.24):Delta momentum
+SLOW_SLOPE:-5.42 (th:8.47):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.37
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:44 | 24250 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24251.8, 24250.0, 24249.9, 24249.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.09 (th:4.24):Delta momentum
+SLOW_SLOPE:-4.99 (th:8.47):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.37
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:45 | 24250 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24250.0, 24249.9, 24249.9, 24247.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-2.95 (th:4.31):Delta momentum
+SLOW_SLOPE:-7.67 (th:8.63):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:46 | 24242 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24249.9, 24249.9, 24247.0, 24245.1]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-4.79 (th:4.31):Delta momentum
+SLOW_SLOPE:-6.74 (th:8.63):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.13
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:PUT | CONFIDENCE:2/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24249.8, 24247.0, 24245.1, 24243.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-3.39 (th:4.20):Delta momentum
+SLOW_SLOPE:-6.32 (th:8.41):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.04
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:48 | 24241 | RANGE   | FORMING | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24247.0, 24245.1, 24243.6, 24242.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-2.50 (th:4.20):Delta momentum
+SLOW_SLOPE:-7.28 (th:8.41):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.04
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:49 | 24241 | RANGE   | FORMING | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24245.1, 24243.6, 24242.6, 24245.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: FORMING (UP)
+FAST_SLOPE:1.88 (th:4.32):Delta momentum
+SLOW_SLOPE:-4.39 (th:8.63):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:50 | 24251 | RANGE   | FORMING | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24243.5, 24242.6, 24245.4, 24247.3]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:4.73 (th:4.32):Delta momentum
+SLOW_SLOPE:0.40 (th:8.63):Structural flow
+OI_LABEL:NEUTRAL | ATR: 3.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:51 | 24251 | TREND   | FORMING | NO_TRADE        | NONE         | 2/4
+SMOOTH_SPOT:[24242.5, 24245.4, 24247.3, 24240.2]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-5.15 (th:4.57):Delta momentum
+SLOW_SLOPE:-4.68 (th:9.15):Structural flow
+OI_LABEL:NEUTRAL | ATR: 5.73
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:PUT | CONFIDENCE:2/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24245.4, 24247.3, 24240.2, 24235.7]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-11.59 (th:4.57):Delta momentum
+SLOW_SLOPE:-7.79 (th:9.15):Structural flow
+OI_LABEL:NEUTRAL | ATR: 5.73
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:53 | 24227 | TREND   | FORMING | NO_TRADE        | NONE         | 2/4
+SMOOTH_SPOT:[24247.3, 24240.3, 24235.7, 24231.9]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-8.31 (th:4.60):Delta momentum
+SLOW_SLOPE:-10.62 (th:9.19):Structural flow
+OI_LABEL:NEUTRAL | ATR: 5.96
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:54 | 24225 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24240.3, 24235.7, 24231.9, 24229.5]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-6.19 (th:4.60):Delta momentum
+SLOW_SLOPE:-15.93 (th:9.19):Structural flow
+OI_LABEL:NEUTRAL | ATR: 5.97
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:55 | 24225 | TREND   | MATURE  | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24235.6, 24231.9, 24229.5, 24228.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-3.52 (th:4.45):Delta momentum
+SLOW_SLOPE:-18.79 (th:8.91):Structural flow
+OI_LABEL:NEUTRAL | ATR: 4.54
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:56 | 24226 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24231.9, 24229.5, 24228.4, 24227.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-1.95 (th:4.46):Delta momentum
+SLOW_SLOPE:-12.67 (th:8.93):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.62
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:57 | 24226 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24229.5, 24228.4, 24227.5, 24225.2]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-3.20 (th:4.15):Delta momentum
+SLOW_SLOPE:-10.48 (th:8.31):Structural flow
+OI_LABEL:NEUTRAL | ATR: 1.53
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+10:58 | 24221 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 1/4
+SMOOTH_SPOT:[24228.4, 24227.5, 24225.2, 24223.3]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-4.22 (th:4.17):Delta momentum
+SLOW_SLOPE:-8.63 (th:8.34):Structural flow
+OI_LABEL:NEUTRAL | ATR: 1.72
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24227.5, 24225.2, 24223.3, 24223.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-2.11 (th:4.18):Delta momentum
+SLOW_SLOPE:-6.32 (th:8.37):Structural flow
+OI_LABEL:NEUTRAL | ATR: 1.83
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:00 | 24223 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+*** 30-MINUTE PERIODIC AI UPDATE: 11:00 ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24225.2, 24223.3, 24223.1, 24222.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.37 (th:4.18):Delta momentum
+SLOW_SLOPE:-5.42 (th:8.36):Structural flow
+OI_LABEL:NEUTRAL | ATR: 1.82
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:01 | 24223 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24223.3, 24223.1, 24222.9, 24222.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.24 (th:4.16):Delta momentum
+SLOW_SLOPE:-4.65 (th:8.32):Structural flow
+OI_LABEL:NEUTRAL | ATR: 1.58
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:02 | 24223 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24223.1, 24222.9, 24222.8, 24222.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.07 (th:4.15):Delta momentum
+SLOW_SLOPE:-2.32 (th:8.31):Structural flow
+OI_LABEL:NEUTRAL | ATR: 1.53
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:03 | 24223 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24223.0, 24222.9, 24222.9, 24222.8]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.07 (th:4.07):Delta momentum
+SLOW_SLOPE:-0.63 (th:8.15):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.74
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:04 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.9, 24222.9, 24222.8, 24222.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.13 (th:4.06):Delta momentum
+SLOW_SLOPE:-0.41 (th:8.11):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.56
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:05 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.7, 24222.7, 24222.7, 24222.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.03 (th:4.01):Delta momentum
+SLOW_SLOPE:0.01 (th:8.02):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.08
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:06 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.7, 24222.7, 24222.7, 24222.8]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.06 (th:4.01):Delta momentum
+SLOW_SLOPE:0.10 (th:8.03):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.12
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:07 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.7, 24222.7, 24222.7, 24222.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.05 (th:4.02):Delta momentum
+SLOW_SLOPE:0.00 (th:8.03):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:08 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.7, 24222.7, 24222.7, 24222.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.06 (th:4.01):Delta momentum
+SLOW_SLOPE:0.00 (th:8.03):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.12
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:09 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.8, 24222.7, 24222.7, 24222.8]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.05 (th:4.01):Delta momentum
+SLOW_SLOPE:0.07 (th:8.03):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.12
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:10 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.7, 24222.7, 24222.8, 24222.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.03 (th:4.02):Delta momentum
+SLOW_SLOPE:0.05 (th:8.03):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:11 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.7, 24222.7, 24222.7, 24222.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.06 (th:4.02):Delta momentum
+SLOW_SLOPE:0.01 (th:8.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:12 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.7, 24222.7, 24222.7, 24222.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.03 (th:4.01):Delta momentum
+SLOW_SLOPE:0.02 (th:8.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.12
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:13 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.7, 24222.7, 24222.7, 24222.8]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.06 (th:4.01):Delta momentum
+SLOW_SLOPE:0.06 (th:8.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.12
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:14 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.7, 24222.7, 24222.8, 24222.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.04 (th:4.02):Delta momentum
+SLOW_SLOPE:-0.05 (th:8.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:15 | 24223 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.7, 24222.8, 24222.7, 24209.7]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-13.08 (th:4.63):Delta momentum
+SLOW_SLOPE:-13.05 (th:9.27):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.33
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:PUT | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24222.8, 24222.7, 24209.7, 24201.3]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-21.40 (th:4.63):Delta momentum
+SLOW_SLOPE:-21.38 (th:9.27):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.34
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:17 | 24186 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24222.7, 24209.7, 24201.3, 24198.4]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-11.30 (th:4.75):Delta momentum
+SLOW_SLOPE:-24.31 (th:9.51):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 7.53
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:18 | 24193 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24209.7, 24201.3, 24198.4, 24196.5]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-4.86 (th:4.75):Delta momentum
+SLOW_SLOPE:-26.30 (th:9.51):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 7.53
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:19 | 24193 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24201.3, 24198.4, 24196.5, 24197.7]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-0.66 (th:4.87):Delta momentum
+SLOW_SLOPE:-25.01 (th:9.73):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.67
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:20 | 24200 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24198.4, 24196.5, 24197.7, 24197.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:1.43 (th:4.89):Delta momentum
+SLOW_SLOPE:-11.79 (th:9.79):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 8.94
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:21 | 24198 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24196.5, 24197.7, 24197.9, 24198.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.28 (th:4.27):Delta momentum
+SLOW_SLOPE:-3.32 (th:8.55):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.74
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:22 | 24198 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24197.7, 24197.9, 24198.0, 24195.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.95 (th:4.37):Delta momentum
+SLOW_SLOPE:-2.44 (th:8.74):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.70
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:23 | 24192 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24197.9, 24198.0, 24195.9, 24196.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.23 (th:4.35):Delta momentum
+SLOW_SLOPE:0.30 (th:8.71):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.55
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:24 | 24198 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24198.0, 24195.9, 24196.8, 24197.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:1.16 (th:4.36):Delta momentum
+SLOW_SLOPE:-0.62 (th:8.73):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.65
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:25 | 24198 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24195.9, 24196.8, 24197.1, 24198.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:1.65 (th:4.30):Delta momentum
+SLOW_SLOPE:0.52 (th:8.60):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.98
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:26 | 24201 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24196.8, 24197.1, 24198.4, 24199.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:2.17 (th:4.27):Delta momentum
+SLOW_SLOPE:1.27 (th:8.53):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.67
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:27 | 24201 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24197.1, 24198.4, 24199.3, 24192.7]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-5.75 (th:4.61):Delta momentum
+SLOW_SLOPE:-3.27 (th:9.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.08
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24198.4, 24199.3, 24192.7, 24188.4]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-10.87 (th:4.51):Delta momentum
+SLOW_SLOPE:-8.37 (th:9.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.07
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:29 | 24180 | TREND   | FORMING | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24199.0, 24192.5, 24188.3, 24187.9]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-4.66 (th:4.51):Delta momentum
+SLOW_SLOPE:-8.73 (th:9.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.14
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:30 | 24187 | TREND   | FORMING | NO_TRADE        | NONE         | 3/4
+*** 30-MINUTE PERIODIC AI UPDATE: 11:30 ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24192.5, 24188.3, 24187.9, 24187.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.72 (th:4.50):Delta momentum
+SLOW_SLOPE:-10.51 (th:9.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.04
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:31 | 24187 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24188.3, 24187.9, 24187.6, 24189.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.63 (th:4.55):Delta momentum
+SLOW_SLOPE:-9.63 (th:9.10):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.52
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:32 | 24193 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24187.9, 24187.6, 24189.5, 24189.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.34 (th:4.59):Delta momentum
+SLOW_SLOPE:-2.65 (th:9.18):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.92
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:33 | 24191 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24187.6, 24189.5, 24190.0, 24189.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.03 (th:4.28):Delta momentum
+SLOW_SLOPE:1.08 (th:8.57):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.85
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:34 | 24189 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24189.5, 24189.9, 24189.5, 24188.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-1.07 (th:4.30):Delta momentum
+SLOW_SLOPE:0.95 (th:8.60):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.01
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:35 | 24188 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24189.9, 24189.5, 24188.9, 24188.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.66 (th:4.21):Delta momentum
+SLOW_SLOPE:1.23 (th:8.42):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.09
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:36 | 24189 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24189.5, 24188.9, 24188.8, 24188.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.03 (th:4.21):Delta momentum
+SLOW_SLOPE:-0.63 (th:8.42):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.09
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:37 | 24189 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24188.9, 24188.9, 24188.8, 24191.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.66 (th:4.24):Delta momentum
+SLOW_SLOPE:1.54 (th:8.47):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.37
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:38 | 24196 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24188.9, 24188.8, 24191.5, 24193.5]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:4.65 (th:4.21):Delta momentum
+SLOW_SLOPE:3.97 (th:8.42):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.08
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:39 | 24197 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24188.9, 24191.5, 24193.5, 24195.8]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:4.31 (th:4.22):Delta momentum
+SLOW_SLOPE:6.92 (th:8.45):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.25
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:40 | 24200 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24191.5, 24193.5, 24195.8, 24197.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:3.87 (th:4.21):Delta momentum
+SLOW_SLOPE:8.49 (th:8.42):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.08
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:41 | 24200 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24193.4, 24195.8, 24197.3, 24196.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.60 (th:4.28):Delta momentum
+SLOW_SLOPE:7.79 (th:8.57):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.83
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:42 | 24195 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24195.8, 24197.3, 24196.4, 24195.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-1.76 (th:4.29):Delta momentum
+SLOW_SLOPE:4.21 (th:8.59):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.93
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:43 | 24194 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24197.4, 24196.4, 24195.6, 24198.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.10 (th:4.33):Delta momentum
+SLOW_SLOPE:5.02 (th:8.66):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.28
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:44 | 24204 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24196.4, 24195.6, 24198.5, 24200.1]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:4.51 (th:4.33):Delta momentum
+SLOW_SLOPE:4.26 (th:8.66):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.32
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:45 | 24203 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24195.6, 24198.5, 24200.1, 24203.6]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:5.09 (th:4.40):Delta momentum
+SLOW_SLOPE:6.16 (th:8.80):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.98
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:46 | 24210 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24198.5, 24200.1, 24203.6, 24205.9]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:5.78 (th:4.40):Delta momentum
+SLOW_SLOPE:9.46 (th:8.80):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.98
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:47 | 24210 | TREND   | MATURE  | CALL            | CONTINUATION | 2.75/4
+*** TRADE TRIGGERED: HIGH_PROB_CALL (Conf: 2.75/4) ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24200.1, 24203.6, 24205.9, 24205.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:1.77 (th:4.40):Delta momentum
+SLOW_SLOPE:9.79 (th:8.80):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.00
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:48 | 24204 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24203.6, 24205.9, 24205.4, 24205.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.76 (th:4.40):Delta momentum
+SLOW_SLOPE:6.64 (th:8.79):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.95
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:49 | 24205 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24205.9, 24205.4, 24205.1, 24209.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:3.64 (th:4.42):Delta momentum
+SLOW_SLOPE:8.91 (th:8.85):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.23
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:50 | 24216 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0.75/4
+SMOOTH_SPOT:[24205.4, 24205.1, 24209.0, 24211.5]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:6.41 (th:4.41):Delta momentum
+SLOW_SLOPE:7.92 (th:8.82):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.09
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:51 | 24216 | TREND   | FORMING | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24205.2, 24209.0, 24211.5, 24214.4]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:5.39 (th:4.35):Delta momentum
+SLOW_SLOPE:8.44 (th:8.70):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.51
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:52 | 24220 | TREND   | FORMING | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24209.0, 24211.5, 24214.4, 24216.2]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:4.71 (th:4.35):Delta momentum
+SLOW_SLOPE:10.81 (th:8.70):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.52
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24211.6, 24214.4, 24216.3, 24217.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:3.14 (th:4.26):Delta momentum
+SLOW_SLOPE:12.36 (th:8.53):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.63
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:54 | 24220 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0.75/4
+SMOOTH_SPOT:[24214.4, 24216.3, 24217.6, 24218.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.16 (th:4.26):Delta momentum
+SLOW_SLOPE:9.37 (th:8.52):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.59
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:55 | 24220 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24216.2, 24217.5, 24218.4, 24219.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.40 (th:4.11):Delta momentum
+SLOW_SLOPE:8.47 (th:8.23):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:56 | 24223 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24217.5, 24218.4, 24219.9, 24221.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:3.17 (th:4.14):Delta momentum
+SLOW_SLOPE:7.21 (th:8.29):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.43
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:57 | 24225 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24218.5, 24220.0, 24221.6, 24220.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.57 (th:4.18):Delta momentum
+SLOW_SLOPE:4.20 (th:8.37):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.84
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:58 | 24219 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24220.0, 24221.6, 24220.5, 24219.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-1.73 (th:4.18):Delta momentum
+SLOW_SLOPE:2.25 (th:8.36):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.82
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+11:59 | 24219 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24221.6, 24220.6, 24219.9, 24218.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-2.31 (th:4.23):Delta momentum
+SLOW_SLOPE:-0.28 (th:8.46):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.32
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:00 | 24215 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 1/4
+*** 30-MINUTE PERIODIC AI UPDATE: 12:00 ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24220.6, 24219.9, 24218.3, 24217.2]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-2.71 (th:4.23):Delta momentum
+SLOW_SLOPE:-2.86 (th:8.47):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.34
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:01 | 24215 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 1/4
+SMOOTH_SPOT:[24219.8, 24218.2, 24217.2, 24216.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-1.78 (th:4.19):Delta momentum
+SLOW_SLOPE:-5.10 (th:8.37):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.87
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:02 | 24215 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24218.2, 24217.2, 24216.5, 24216.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-1.13 (th:4.16):Delta momentum
+SLOW_SLOPE:-4.49 (th:8.32):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.59
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:03 | 24215 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24217.2, 24216.5, 24216.1, 24215.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.76 (th:4.06):Delta momentum
+SLOW_SLOPE:-4.26 (th:8.12):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.61
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:04 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\nifty_trend_engine\main.py", line 99, in <module>
+    main()
+  File "C:\Users\Administrator\Desktop\nifty_trend_engine\main.py", line 96, in main
+    time.sleep(1)
+KeyboardInterrupt
+^C
+C:\Users\Administrator\Desktop\nifty_trend_engine>python main.py
+Nifty Trend Engine v4.0 Started (State-Driven Execution Engine)
+
+SMOOTH_SPOT:[24217.2, 24216.5, 24216.1, 24215.8]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.72 (th:4.06):Delta momentum
+SLOW_SLOPE:-4.23 (th:8.12):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.59
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:04 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24216.5, 24216.1, 24215.8, 24215.6]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.47 (th:4.06):Delta momentum
+SLOW_SLOPE:-2.75 (th:8.12):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.59
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:05 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24216.1, 24215.8, 24215.6, 24215.5]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.31 (th:4.00):Delta momentum
+SLOW_SLOPE:-1.79 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.03
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:06 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.8, 24215.6, 24215.5, 24215.4]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.24 (th:4.00):Delta momentum
+SLOW_SLOPE:-1.16 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.03
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:07 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.6, 24215.5, 24215.4, 24215.3]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.16 (th:4.00):Delta momentum
+SLOW_SLOPE:-0.76 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.05
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:08 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.5, 24215.4, 24215.3, 24215.3]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.07 (th:4.00):Delta momentum
+SLOW_SLOPE:-0.49 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.03
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:09 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.4, 24215.3, 24215.3, 24215.3]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.05 (th:4.00):Delta momentum
+SLOW_SLOPE:-0.35 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.03
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:10 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.3, 24215.3, 24215.3, 24215.2]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.07 (th:4.00):Delta momentum
+SLOW_SLOPE:-0.29 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.05
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:11 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.3, 24215.3, 24215.2, 24215.2]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.07 (th:4.00):Delta momentum
+SLOW_SLOPE:-0.12 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.05
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:12 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.3, 24215.2, 24215.2, 24215.2]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.04 (th:4.00):Delta momentum
+SLOW_SLOPE:-0.11 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.03
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:13 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.2, 24215.2, 24215.2, 24215.2]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.01 (th:4.00):Delta momentum
+SLOW_SLOPE:-0.03 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.03
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:14 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.2, 24215.2, 24215.2, 24215.2]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.01 (th:4.00):Delta momentum
+SLOW_SLOPE:-0.05 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.05
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:15 | 24215 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.2, 24215.2, 24215.2, 24219.2]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:4.03 (th:4.20):Delta momentum
+SLOW_SLOPE:4.02 (th:8.40):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.98
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:16 | 24227 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.2, 24215.2, 24219.2, 24221.9]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:6.68 (th:4.20):Delta momentum
+SLOW_SLOPE:6.67 (th:8.39):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.97
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:17 | 24227 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24215.2, 24219.2, 24221.9, 24225.8]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:6.56 (th:4.30):Delta momentum
+SLOW_SLOPE:10.62 (th:8.60):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.02
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24219.2, 24221.9, 24225.8, 24228.4]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:6.49 (th:4.30):Delta momentum
+SLOW_SLOPE:13.15 (th:8.60):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.02
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:19 | 24233 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24221.9, 24225.8, 24228.4, 24224.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-1.47 (th:4.57):Delta momentum
+SLOW_SLOPE:9.14 (th:9.14):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.72
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:20 | 24217 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24225.8, 24228.4, 24224.3, 24221.7]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-6.64 (th:4.57):Delta momentum
+SLOW_SLOPE:2.48 (th:9.14):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.70
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:21 | 24217 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24228.4, 24224.3, 24221.7, 24221.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-3.37 (th:4.42):Delta momentum
+SLOW_SLOPE:-0.91 (th:8.84):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.22
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:22 | 24220 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24224.3, 24221.7, 24221.0, 24214.9]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-6.85 (th:4.69):Delta momentum
+SLOW_SLOPE:-10.93 (th:9.38):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.88
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:23 | 24204 | TREND   | FORMING | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24221.7, 24221.0, 24214.9, 24211.1]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-9.86 (th:4.59):Delta momentum
+SLOW_SLOPE:-17.26 (th:9.18):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.92
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:PUT | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:24 | 24204 | TREND   | CONFIRMED | PUT             | CONTINUATION | 4/4
+*** TRADE TRIGGERED: HIGH_PROB_PUT (Conf: 4/4) ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24221.0, 24214.9, 24211.1, 24208.6]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-6.22 (th:4.59):Delta momentum
+SLOW_SLOPE:-15.68 (th:9.18):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.92
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:25 | 24204 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24214.9, 24211.1, 24208.6, 24213.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:2.77 (th:4.65):Delta momentum
+SLOW_SLOPE:-7.85 (th:9.29):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:26 | 24224 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24211.1, 24208.6, 24213.9, 24217.1]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:8.50 (th:4.65):Delta momentum
+SLOW_SLOPE:-3.80 (th:9.30):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.50
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:27 | 24223 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24208.6, 24213.9, 24217.1, 24219.4]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:5.49 (th:4.61):Delta momentum
+SLOW_SLOPE:4.49 (th:9.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.08
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:28 | 24223 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24213.9, 24217.1, 24219.4, 24220.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:3.71 (th:4.35):Delta momentum
+SLOW_SLOPE:9.76 (th:8.69):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:29 | 24224 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0.75/4
+SMOOTH_SPOT:[24217.2, 24219.4, 24220.9, 24222.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (UP)
+FAST_SLOPE:2.74 (th:4.35):Delta momentum
+SLOW_SLOPE:13.33 (th:8.70):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.49
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:30 | 24224 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0.75/4
+*** 30-MINUTE PERIODIC AI UPDATE: 12:30 ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24219.4, 24220.9, 24222.1, 24222.7]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:1.78 (th:4.36):Delta momentum
+SLOW_SLOPE:8.70 (th:8.72):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.62
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:31 | 24224 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24220.9, 24222.2, 24222.7, 24220.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.90 (th:4.17):Delta momentum
+SLOW_SLOPE:2.95 (th:8.34):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.70
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:32 | 24216 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.2, 24222.7, 24220.3, 24221.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.24 (th:4.30):Delta momentum
+SLOW_SLOPE:1.99 (th:8.59):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.97
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:33 | 24224 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.6, 24220.2, 24221.4, 24218.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.36 (th:4.45):Delta momentum
+SLOW_SLOPE:-1.87 (th:8.91):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.53
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:34 | 24214 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24220.2, 24221.4, 24218.8, 24217.2]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-4.25 (th:4.45):Delta momentum
+SLOW_SLOPE:-4.86 (th:8.90):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.50
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:35 | 24214 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24221.4, 24218.8, 24217.2, 24217.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.44 (th:4.50):Delta momentum
+SLOW_SLOPE:-5.22 (th:9.00):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.00
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:36 | 24218 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24218.7, 24217.1, 24217.4, 24217.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.43 (th:4.49):Delta momentum
+SLOW_SLOPE:-2.47 (th:8.97):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.87
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:37 | 24218 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24217.1, 24217.4, 24217.5, 24222.0]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:4.64 (th:4.56):Delta momentum
+SLOW_SLOPE:0.72 (th:9.13):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.63
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:38 | 24230 | TREND   | FORMING | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24217.4, 24217.5, 24222.0, 24224.9]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:7.32 (th:4.43):Delta momentum
+SLOW_SLOPE:6.10 (th:8.87):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.33
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:39 | 24230 | TREND   | FORMING | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24217.6, 24222.1, 24224.9, 24226.7]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:4.66 (th:4.27):Delta momentum
+SLOW_SLOPE:9.37 (th:8.55):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.73
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:40 | 24230 | TREND   | CONFIRMED | CALL            | CONTINUATION | 2.75/4
+*** TRADE TRIGGERED: HIGH_PROB_CALL (Conf: 2.75/4) ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24222.1, 24224.9, 24226.7, 24229.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:4.17 (th:4.33):Delta momentum
+SLOW_SLOPE:11.54 (th:8.65):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.27
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:41 | 24233 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0.75/4
+SMOOTH_SPOT:[24224.9, 24226.7, 24229.1, 24229.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.34 (th:4.34):Delta momentum
+SLOW_SLOPE:11.43 (th:8.67):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.36
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:42 | 24229 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24226.7, 24229.1, 24229.1, 24225.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-3.59 (th:4.51):Delta momentum
+SLOW_SLOPE:3.40 (th:9.02):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.08
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:43 | 24219 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24229.1, 24229.1, 24225.5, 24223.1]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-5.94 (th:4.30):Delta momentum
+SLOW_SLOPE:-1.77 (th:8.60):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.00
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:44 | 24219 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24229.1, 24225.5, 24223.1, 24221.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-3.86 (th:4.30):Delta momentum
+SLOW_SLOPE:-5.11 (th:8.60):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.98
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:45 | 24219 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24225.4, 24223.1, 24221.6, 24225.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.85 (th:4.50):Delta momentum
+SLOW_SLOPE:-4.00 (th:9.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.04
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:46 | 24231 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24223.2, 24221.6, 24225.0, 24227.2]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:5.52 (th:4.45):Delta momentum
+SLOW_SLOPE:-1.96 (th:8.90):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.50
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:47 | 24231 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24221.6, 24224.9, 24227.1, 24227.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.58 (th:4.43):Delta momentum
+SLOW_SLOPE:2.15 (th:8.86):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.28
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:48 | 24228 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24224.9, 24227.1, 24227.5, 24227.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.64 (th:4.26):Delta momentum
+SLOW_SLOPE:4.70 (th:8.51):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.56
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:49 | 24228 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24227.2, 24227.5, 24227.8, 24222.8]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-4.72 (th:4.50):Delta momentum
+SLOW_SLOPE:1.19 (th:9.00):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.00
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:50 | 24214 | TREND   | CONFIRMED | PUT             | BREAKOUT     | 3/4
+*** TRADE TRIGGERED: HIGH_PROB_PUT (Conf: 3/4) ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24227.5, 24227.8, 24222.8, 24219.5]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-8.30 (th:4.51):Delta momentum
+SLOW_SLOPE:-5.49 (th:9.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.05
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:51 | 24213 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24227.9, 24222.9, 24219.5, 24220.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-2.81 (th:4.43):Delta momentum
+SLOW_SLOPE:-7.27 (th:8.86):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.28
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:52 | 24221 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.9, 24219.5, 24220.1, 24220.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.01 (th:4.43):Delta momentum
+SLOW_SLOPE:-7.12 (th:8.87):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.33
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:53 | 24221 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24219.5, 24220.1, 24220.5, 24220.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.81 (th:4.39):Delta momentum
+SLOW_SLOPE:-6.99 (th:8.77):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.86
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:54 | 24222 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24220.1, 24220.5, 24220.9, 24221.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.56 (th:4.39):Delta momentum
+SLOW_SLOPE:-1.82 (th:8.77):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.86
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:55 | 24222 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24220.5, 24220.9, 24221.1, 24218.2]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-2.69 (th:4.29):Delta momentum
+SLOW_SLOPE:-1.32 (th:8.57):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.88
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:56 | 24213 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 1/4
+SMOOTH_SPOT:[24220.8, 24221.0, 24218.1, 24216.3]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-4.79 (th:4.28):Delta momentum
+SLOW_SLOPE:-3.64 (th:8.57):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.83
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24221.0, 24218.1, 24216.3, 24215.2]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-2.92 (th:4.16):Delta momentum
+SLOW_SLOPE:-5.20 (th:8.32):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.62
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:58 | 24213 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24218.1, 24216.3, 24215.2, 24215.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.45 (th:4.22):Delta momentum
+SLOW_SLOPE:-4.99 (th:8.43):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+12:59 | 24217 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24216.3, 24215.3, 24215.8, 24213.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-1.87 (th:4.35):Delta momentum
+SLOW_SLOPE:-7.82 (th:8.70):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.49
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:00 | 24209 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 1/4
+*** 30-MINUTE PERIODIC AI UPDATE: 13:00 ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24215.3, 24215.8, 24213.4, 24211.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-3.97 (th:4.35):Delta momentum
+SLOW_SLOPE:-6.38 (th:8.71):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.53
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:01 | 24209 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.8, 24213.4, 24211.9, 24210.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-2.50 (th:4.21):Delta momentum
+SLOW_SLOPE:-5.41 (th:8.41):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.07
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:02 | 24209 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24213.4, 24211.9, 24210.9, 24210.2]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-1.63 (th:4.21):Delta momentum
+SLOW_SLOPE:-5.00 (th:8.41):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.07
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:03 | 24209 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24211.8, 24210.8, 24210.2, 24209.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-1.03 (th:4.20):Delta momentum
+SLOW_SLOPE:-5.82 (th:8.40):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.98
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:04 | 24209 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24210.8, 24210.2, 24209.8, 24209.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.67 (th:4.14):Delta momentum
+SLOW_SLOPE:-3.71 (th:8.28):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.38
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:05 | 24209 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24210.2, 24209.8, 24209.6, 24209.3]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.52 (th:4.01):Delta momentum
+SLOW_SLOPE:-2.57 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.07
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:06 | 24209 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.8, 24209.6, 24209.3, 24209.2]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.34 (th:4.01):Delta momentum
+SLOW_SLOPE:-1.68 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.07
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:07 | 24209 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.6, 24209.3, 24209.2, 24209.2]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.15 (th:4.01):Delta momentum
+SLOW_SLOPE:-1.09 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.07
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:08 | 24209 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.3, 24209.2, 24209.2, 24209.1]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.10 (th:4.01):Delta momentum
+SLOW_SLOPE:-0.71 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.07
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:09 | 24209 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.2, 24209.1, 24209.1, 24209.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.11 (th:4.01):Delta momentum
+SLOW_SLOPE:-0.43 (th:8.02):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.10
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:10 | 24209 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.1, 24209.1, 24209.0, 24209.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.14 (th:4.01):Delta momentum
+SLOW_SLOPE:-0.28 (th:8.02):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.10
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:11 | 24209 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.1, 24209.0, 24209.0, 24209.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.03 (th:4.01):Delta momentum
+SLOW_SLOPE:-0.19 (th:8.02):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.10
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:12 | 24209 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.0, 24209.0, 24209.0, 24208.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.02 (th:4.01):Delta momentum
+SLOW_SLOPE:-0.23 (th:8.02):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.10
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:13 | 24209 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24208.9, 24209.0, 24208.9, 24208.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.07 (th:4.01):Delta momentum
+SLOW_SLOPE:-0.13 (th:8.02):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.10
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:14 | 24209 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.0, 24208.9, 24208.9, 24209.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.03 (th:4.01):Delta momentum
+SLOW_SLOPE:-0.01 (th:8.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:15 | 24209 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24208.9, 24208.9, 24209.0, 24212.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:3.90 (th:4.19):Delta momentum
+SLOW_SLOPE:3.88 (th:8.38):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.92
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:16 | 24220 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24208.9, 24209.0, 24212.8, 24215.3]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:6.30 (th:4.19):Delta momentum
+SLOW_SLOPE:6.28 (th:8.39):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.94
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:17 | 24220 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24209.0, 24212.8, 24215.3, 24220.1]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:7.30 (th:4.35):Delta momentum
+SLOW_SLOPE:11.17 (th:8.69):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.46
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:19 | 24229 | TREND   | MATURE  | CALL            | BREAKOUT     | 2.75/4
+*** TRADE TRIGGERED: HIGH_PROB_CALL (Conf: 2.75/4) ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24212.8, 24215.3, 24220.1, 24223.2]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:8.00 (th:4.34):Delta momentum
+SLOW_SLOPE:14.35 (th:8.69):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.43
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:20 | 24229 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24215.3, 24220.1, 24223.2, 24227.7]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:7.60 (th:4.46):Delta momentum
+SLOW_SLOPE:18.74 (th:8.91):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.57
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:21 | 24236 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24220.1, 24223.2, 24227.7, 24230.6]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:7.33 (th:4.45):Delta momentum
+SLOW_SLOPE:17.78 (th:8.91):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.53
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:22 | 24236 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24223.2, 24227.7, 24230.6, 24222.9]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-4.79 (th:4.73):Delta momentum
+SLOW_SLOPE:7.66 (th:9.45):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 7.27
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:23 | 24209 | TREND   | MATURE  | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24227.7, 24230.6, 24222.9, 24217.9]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-12.67 (th:4.72):Delta momentum
+SLOW_SLOPE:-2.18 (th:9.45):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 7.24
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:24 | 24209 | TREND   | MATURE  | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24230.6, 24222.9, 24217.9, 24214.6]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-8.34 (th:4.57):Delta momentum
+SLOW_SLOPE:-8.68 (th:9.15):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.74
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:25 | 24208 | TREND   | MATURE  | PUT             | BREAKOUT     | 3/4
+*** TRADE TRIGGERED: HIGH_PROB_PUT (Conf: 3/4) ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24222.9, 24217.9, 24214.6, 24209.1]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-8.83 (th:4.73):Delta momentum
+SLOW_SLOPE:-18.61 (th:9.46):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 7.32
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:26 | 24199 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24217.9, 24214.6, 24209.1, 24205.5]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-9.05 (th:4.62):Delta momentum
+SLOW_SLOPE:-25.07 (th:9.23):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:27 | 24199 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24214.6, 24209.1, 24205.5, 24202.6]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-6.49 (th:4.65):Delta momentum
+SLOW_SLOPE:-20.32 (th:9.29):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.47
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:28 | 24197 | TREND   | MATURE  | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24209.1, 24205.5, 24202.6, 24200.7]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-4.83 (th:4.19):Delta momentum
+SLOW_SLOPE:-17.23 (th:8.38):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.92
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:PUT | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24205.5, 24202.6, 24200.7, 24200.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-2.27 (th:4.23):Delta momentum
+SLOW_SLOPE:-14.25 (th:8.47):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.33
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:30 | 24200 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+*** 30-MINUTE PERIODIC AI UPDATE: 13:30 ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24202.7, 24200.7, 24200.4, 24197.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-2.95 (th:4.34):Delta momentum
+SLOW_SLOPE:-11.46 (th:8.68):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.39
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:31 | 24193 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 2/4
+SMOOTH_SPOT:[24200.7, 24200.3, 24197.8, 24196.1]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-4.24 (th:4.18):Delta momentum
+SLOW_SLOPE:-9.51 (th:8.36):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.82
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:32 | 24193 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24200.4, 24197.8, 24196.1, 24195.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-2.83 (th:4.18):Delta momentum
+SLOW_SLOPE:-7.80 (th:8.37):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.84
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:33 | 24193 | RANGE   | IDLE    | NO_TRADE        | NONE         | 1/4
+SMOOTH_SPOT:[24197.8, 24196.1, 24195.0, 24202.5]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:6.37 (th:4.55):Delta momentum
+SLOW_SLOPE:1.69 (th:9.10):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.48
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:34 | 24216 | TREND   | FORMING | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24196.2, 24195.0, 24202.5, 24207.4]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:12.38 (th:4.55):Delta momentum
+SLOW_SLOPE:6.90 (th:9.10):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.48
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:35 | 24216 | TREND   | FORMING | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24195.0, 24202.5, 24207.4, 24209.5]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:7.03 (th:4.56):Delta momentum
+SLOW_SLOPE:11.67 (th:9.11):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.55
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:37 | 24214 | TREND   | CONFIRMED | CALL            | CONTINUATION | 2.75/4
+*** TRADE TRIGGERED: HIGH_PROB_CALL (Conf: 2.75/4) ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24202.4, 24207.3, 24209.5, 24214.1]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:6.82 (th:4.60):Delta momentum
+SLOW_SLOPE:18.31 (th:9.19):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.97
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:38 | 24223 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24207.3, 24209.5, 24214.1, 24217.1]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:7.63 (th:4.60):Delta momentum
+SLOW_SLOPE:22.35 (th:9.19):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.97
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:39 | 24223 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24209.5, 24214.1, 24217.1, 24219.1]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:4.96 (th:4.59):Delta momentum
+SLOW_SLOPE:16.72 (th:9.19):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.94
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:40 | 24223 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24214.1, 24217.1, 24219.0, 24216.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-0.99 (th:4.40):Delta momentum
+SLOW_SLOPE:8.93 (th:8.81):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.03
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:41 | 24211 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24217.1, 24219.0, 24216.1, 24212.2]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-6.87 (th:4.50):Delta momentum
+SLOW_SLOPE:2.78 (th:9.00):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.98
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:42 | 24205 | TREND   | EXHAUSTION | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24219.0, 24216.1, 24212.2, 24211.5]:EMA filtered
+REGIME:TREND | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-4.57 (th:4.54):Delta momentum
+SLOW_SLOPE:-2.51 (th:9.08):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.39
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:43 | 24210 | TREND   | EXHAUSTION | PUT             | EARLY_TREND  | 3/4
+*** TRADE TRIGGERED: HIGH_PROB_PUT (Conf: 3/4) ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24216.1, 24212.2, 24211.5, 24213.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:1.16 (th:4.49):Delta momentum
+SLOW_SLOPE:-3.73 (th:8.99):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.93
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:44 | 24217 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24212.2, 24211.5, 24213.3, 24214.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:2.99 (th:4.49):Delta momentum
+SLOW_SLOPE:-4.56 (th:8.99):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.93
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:45 | 24217 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24211.5, 24213.3, 24214.5, 24215.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:1.73 (th:4.50):Delta momentum
+SLOW_SLOPE:-0.98 (th:9.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.04
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:46 | 24216 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24213.3, 24214.5, 24215.0, 24215.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.90 (th:4.30):Delta momentum
+SLOW_SLOPE:3.27 (th:8.60):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.02
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:47 | 24216 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24214.5, 24215.0, 24215.4, 24213.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.13 (th:4.29):Delta momentum
+SLOW_SLOPE:2.42 (th:8.58):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.89
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:48 | 24211 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.2, 24215.5, 24214.0, 24213.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-2.50 (th:4.20):Delta momentum
+SLOW_SLOPE:-0.65 (th:8.40):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.99
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:49 | 24211 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.5, 24214.0, 24213.0, 24210.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-3.41 (th:4.18):Delta momentum
+SLOW_SLOPE:-4.15 (th:8.36):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.78
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:50 | 24206 | RANGE   | IDLE    | NO_TRADE        | NONE         | 1/4
+SMOOTH_SPOT:[24213.9, 24213.0, 24210.5, 24210.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-3.02 (th:4.22):Delta momentum
+SLOW_SLOPE:-5.18 (th:8.45):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.24
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:51 | 24209 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24213.0, 24210.6, 24210.0, 24209.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.00 (th:4.21):Delta momentum
+SLOW_SLOPE:-6.00 (th:8.43):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:52 | 24209 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24210.6, 24210.0, 24209.6, 24209.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.05 (th:4.24):Delta momentum
+SLOW_SLOPE:-4.11 (th:8.48):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.42
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:53 | 24211 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24210.0, 24209.6, 24209.9, 24210.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.56 (th:4.16):Delta momentum
+SLOW_SLOPE:-2.88 (th:8.32):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.60
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:54 | 24211 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.5, 24209.9, 24210.1, 24210.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.39 (th:4.16):Delta momentum
+SLOW_SLOPE:-0.15 (th:8.32):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.60
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:55 | 24211 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24209.8, 24210.1, 24210.3, 24206.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-3.23 (th:4.24):Delta momentum
+SLOW_SLOPE:-2.94 (th:8.48):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.42
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:56 | 24201 | RANGE   | IDLE    | NO_TRADE        | NONE         | 1/4
+SMOOTH_SPOT:[24210.1, 24210.3, 24206.9, 24204.7]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-5.61 (th:4.20):Delta momentum
+SLOW_SLOPE:-4.88 (th:8.39):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.95
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24210.3, 24206.9, 24204.7, 24208.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: FORMING (UP)
+FAST_SLOPE:1.74 (th:4.45):Delta momentum
+SLOW_SLOPE:-1.34 (th:8.91):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.53
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:58 | 24216 | RANGE   | FORMING | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24206.9, 24204.7, 24208.6, 24211.2]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (UP)
+FAST_SLOPE:6.51 (th:4.43):Delta momentum
+SLOW_SLOPE:1.00 (th:8.85):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.26
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+13:59 | 24216 | TREND   | FORMING | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24204.7, 24208.6, 24211.2, 24212.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: FORMING (UP)
+FAST_SLOPE:4.28 (th:4.43):Delta momentum
+SLOW_SLOPE:2.62 (th:8.86):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.30
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:00 | 24216 | RANGE   | FORMING | NO_TRADE        | NONE         | 0/4
+*** 30-MINUTE PERIODIC AI UPDATE: 14:00 ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24208.6, 24211.2, 24212.9, 24214.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: FORMING (UP)
+FAST_SLOPE:2.87 (th:4.43):Delta momentum
+SLOW_SLOPE:7.16 (th:8.86):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.30
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:01 | 24216 | RANGE   | FORMING | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24211.1, 24212.9, 24214.0, 24214.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.88 (th:4.26):Delta momentum
+SLOW_SLOPE:10.17 (th:8.53):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.63
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:02 | 24216 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24212.9, 24214.0, 24214.8, 24215.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.22 (th:4.26):Delta momentum
+SLOW_SLOPE:6.67 (th:8.53):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.63
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:03 | 24216 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24214.0, 24214.8, 24215.2, 24215.6]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.80 (th:4.01):Delta momentum
+SLOW_SLOPE:4.48 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.06
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:04 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24214.8, 24215.3, 24215.6, 24215.6]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.38 (th:4.01):Delta momentum
+SLOW_SLOPE:2.74 (th:8.02):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.11
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:05 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.3, 24215.6, 24215.6, 24215.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.10 (th:4.01):Delta momentum
+SLOW_SLOPE:1.64 (th:8.01):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.07
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:06 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.6, 24215.6, 24215.7, 24215.8]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.20 (th:4.01):Delta momentum
+SLOW_SLOPE:1.05 (th:8.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:07 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.6, 24215.7, 24215.8, 24216.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.27 (th:4.01):Delta momentum
+SLOW_SLOPE:0.68 (th:8.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:08 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.7, 24215.8, 24216.0, 24216.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.18 (th:4.01):Delta momentum
+SLOW_SLOPE:0.44 (th:8.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:09 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.8, 24215.9, 24216.0, 24215.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.00 (th:4.02):Delta momentum
+SLOW_SLOPE:0.41 (th:8.04):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.20
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:10 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.9, 24216.0, 24215.9, 24215.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.14 (th:4.01):Delta momentum
+SLOW_SLOPE:0.26 (th:8.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:11 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24216.1, 24216.0, 24215.9, 24216.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.01 (th:4.02):Delta momentum
+SLOW_SLOPE:-0.01 (th:8.04):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.20
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:12 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24216.0, 24215.9, 24216.0, 24216.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.15 (th:4.01):Delta momentum
+SLOW_SLOPE:-0.01 (th:8.03):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:13 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24215.9, 24216.0, 24216.0, 24216.1]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.10 (th:4.01):Delta momentum
+SLOW_SLOPE:-0.01 (th:8.03):Structural flow
+OI_LABEL:NEUTRAL | ATR: 0.13
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:15 | 24216 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24216.0, 24216.0, 24216.1, 24219.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:3.42 (th:4.17):Delta momentum
+SLOW_SLOPE:3.50 (th:8.35):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.73
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:16 | 24226 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24216.0, 24216.1, 24219.5, 24221.8]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:5.71 (th:4.17):Delta momentum
+SLOW_SLOPE:5.89 (th:8.34):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.72
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:17 | 24226 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24216.1, 24219.5, 24221.8, 24222.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:3.36 (th:4.19):Delta momentum
+SLOW_SLOPE:6.84 (th:8.39):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.95
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:18 | 24225 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24219.5, 24221.8, 24222.8, 24223.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.75 (th:4.19):Delta momentum
+SLOW_SLOPE:7.49 (th:8.38):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.90
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:19 | 24225 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24221.8, 24222.8, 24223.5, 24223.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.24 (th:4.23):Delta momentum
+SLOW_SLOPE:6.99 (th:8.47):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.34
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:20 | 24222 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24222.8, 24223.5, 24223.1, 24222.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.77 (th:4.23):Delta momentum
+SLOW_SLOPE:3.30 (th:8.47):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.34
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:21 | 24222 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24223.5, 24223.1, 24222.8, 24226.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:3.21 (th:4.25):Delta momentum
+SLOW_SLOPE:4.49 (th:8.50):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.51
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:22 | 24233 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24223.1, 24222.8, 24226.3, 24228.4]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:5.66 (th:4.25):Delta momentum
+SLOW_SLOPE:5.59 (th:8.50):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.52
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:23 | 24232 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24222.8, 24226.3, 24228.4, 24229.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.75 (th:4.27):Delta momentum
+SLOW_SLOPE:5.49 (th:8.53):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.67
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:24 | 24230 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24226.3, 24228.4, 24229.0, 24229.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.00 (th:4.26):Delta momentum
+SLOW_SLOPE:6.36 (th:8.53):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.65
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:25 | 24230 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24228.4, 24229.0, 24229.4, 24224.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-4.44 (th:4.46):Delta momentum
+SLOW_SLOPE:1.82 (th:8.93):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.63
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:26 | 24216 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 1/4
+SMOOTH_SPOT:[24229.0, 24229.4, 24224.6, 24221.4]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-7.98 (th:4.46):Delta momentum
+SLOW_SLOPE:-4.84 (th:8.93):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.63
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24229.4, 24224.6, 24221.4, 24225.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.41 (th:4.55):Delta momentum
+SLOW_SLOPE:-3.43 (th:9.11):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.53
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:28 | 24232 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24224.6, 24221.4, 24225.0, 24227.3]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:5.85 (th:4.55):Delta momentum
+SLOW_SLOPE:-1.74 (th:9.10):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.48
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:1.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:29 | 24232 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 1.75/4
+SMOOTH_SPOT:[24221.5, 24225.0, 24227.3, 24228.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:3.47 (th:4.52):Delta momentum
+SLOW_SLOPE:-1.05 (th:9.05):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.24
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:30 | 24231 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+*** 30-MINUTE PERIODIC AI UPDATE: 14:30 ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24225.0, 24227.3, 24228.5, 24229.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.96 (th:4.52):Delta momentum
+SLOW_SLOPE:4.60 (th:9.05):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 5.24
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:31 | 24231 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24227.3, 24228.5, 24229.3, 24230.7]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.25 (th:4.33):Delta momentum
+SLOW_SLOPE:9.27 (th:8.66):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.28
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:32 | 24234 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0.75/4
+SMOOTH_SPOT:[24228.5, 24229.3, 24230.7, 24231.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.36 (th:4.33):Delta momentum
+SLOW_SLOPE:6.60 (th:8.66):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.32
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:33 | 24233 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24229.3, 24230.7, 24231.6, 24231.2]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.49 (th:4.11):Delta momentum
+SLOW_SLOPE:3.96 (th:8.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.12
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:34 | 24230 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24230.7, 24231.6, 24231.2, 24231.1]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.56 (th:4.11):Delta momentum
+SLOW_SLOPE:2.59 (th:8.23):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.15
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:35 | 24231 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24231.7, 24231.3, 24231.1, 24232.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.14 (th:4.17):Delta momentum
+SLOW_SLOPE:3.01 (th:8.34):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.69
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:36 | 24235 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24231.3, 24231.1, 24232.4, 24233.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.19 (th:4.17):Delta momentum
+SLOW_SLOPE:2.45 (th:8.34):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.70
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:37 | 24235 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24231.1, 24232.4, 24233.3, 24233.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.43 (th:4.12):Delta momentum
+SLOW_SLOPE:2.18 (th:8.25):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.24
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:38 | 24235 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24232.4, 24233.3, 24233.8, 24232.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-0.42 (th:4.18):Delta momentum
+SLOW_SLOPE:1.61 (th:8.37):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.83
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:39 | 24231 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24233.2, 24233.8, 24232.8, 24229.1]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-4.65 (th:4.28):Delta momentum
+SLOW_SLOPE:-1.76 (th:8.57):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.84
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:PUT | CONFIDENCE:2/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24233.8, 24232.8, 24229.1, 24226.7]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-6.10 (th:4.28):Delta momentum
+SLOW_SLOPE:-5.55 (th:8.56):Structural flow
+OI_LABEL:NEUTRAL | ATR: 2.80
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:41 | 24222 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 2/4
+SMOOTH_SPOT:[24232.9, 24229.2, 24226.8, 24227.3]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-1.83 (th:4.32):Delta momentum
+SLOW_SLOPE:-6.06 (th:8.63):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.15
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:42 | 24228 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24229.2, 24226.8, 24227.3, 24228.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.28 (th:4.33):Delta momentum
+SLOW_SLOPE:-5.88 (th:8.66):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.28
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:43 | 24229 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24226.7, 24227.3, 24228.0, 24230.0]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.62 (th:4.40):Delta momentum
+SLOW_SLOPE:-2.94 (th:8.80):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.98
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:44 | 24234 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24227.3, 24228.0, 24230.0, 24231.1]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:3.05 (th:4.34):Delta momentum
+SLOW_SLOPE:1.91 (th:8.68):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.42
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:45 | 24233 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24228.0, 24230.0, 24231.1, 24231.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.96 (th:4.20):Delta momentum
+SLOW_SLOPE:5.14 (th:8.40):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.01
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:46 | 24234 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24230.0, 24231.1, 24231.9, 24232.7]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.64 (th:4.21):Delta momentum
+SLOW_SLOPE:5.36 (th:8.42):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.12
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:47 | 24234 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24231.1, 24231.9, 24232.7, 24233.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.72 (th:4.13):Delta momentum
+SLOW_SLOPE:5.63 (th:8.26):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.28
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:48 | 24235 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24231.9, 24232.7, 24233.6, 24233.8]:EMA filtered
+REGIME:RANGE | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.12 (th:4.13):Delta momentum
+SLOW_SLOPE:3.89 (th:8.27):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.33
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:49 | 24234 | RANGE   | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24232.7, 24233.7, 24233.8, 24235.1]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.45 (th:4.12):Delta momentum
+SLOW_SLOPE:3.98 (th:8.23):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:50 | 24237 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24233.7, 24233.8, 24235.1, 24235.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:2.08 (th:4.11):Delta momentum
+SLOW_SLOPE:3.97 (th:8.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.10
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:51 | 24237 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24233.8, 24235.1, 24235.9, 24236.5]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:1.35 (th:4.10):Delta momentum
+SLOW_SLOPE:3.72 (th:8.21):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.04
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:52 | 24237 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24235.1, 24235.9, 24236.5, 24236.8]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: CONFIRMED (UP)
+FAST_SLOPE:0.89 (th:4.09):Delta momentum
+SLOW_SLOPE:3.20 (th:8.18):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.92
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:53 | 24237 | SIDEWAYS | CONFIRMED | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24235.9, 24236.4, 24236.8, 24245.5]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:9.05 (th:4.48):Delta momentum
+SLOW_SLOPE:11.77 (th:8.95):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.76
+CANDIDATE_TYPE:CONTINUATION
+FINAL_SIGNAL:CALL | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:54 | 24262 | TREND   | MATURE  | CALL            | CONTINUATION | 2.75/4
+*** TRADE TRIGGERED: HIGH_PROB_CALL (Conf: 2.75/4) ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24236.4, 24236.8, 24245.5, 24250.8]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:14.02 (th:4.47):Delta momentum
+SLOW_SLOPE:15.79 (th:8.94):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.72
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:55 | 24261 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24236.8, 24245.5, 24250.8, 24250.4]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (UP)
+FAST_SLOPE:4.86 (th:4.60):Delta momentum
+SLOW_SLOPE:14.41 (th:9.21):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.04
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:2.75/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:56 | 24250 | TREND   | MATURE  | NO_TRADE        | NONE         | 2.75/4
+SMOOTH_SPOT:[24245.5, 24250.8, 24250.4, 24249.9]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-0.88 (th:4.61):Delta momentum
+SLOW_SLOPE:13.45 (th:9.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.10
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:57 | 24249 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24250.8, 24250.4, 24249.9, 24249.7]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-0.69 (th:4.61):Delta momentum
+SLOW_SLOPE:12.80 (th:9.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.11
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:58 | 24249 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24250.4, 24249.9, 24249.7, 24249.5]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.43 (th:4.61):Delta momentum
+SLOW_SLOPE:3.99 (th:9.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 6.11
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+14:59 | 24249 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24249.9, 24249.7, 24249.5, 24251.4]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:1.70 (th:4.30):Delta momentum
+SLOW_SLOPE:0.54 (th:8.60):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 3.02
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:00 | 24255 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+*** 30-MINUTE PERIODIC AI UPDATE: 15:00 ***
+Launching AI Analysis and Telegram alert in background...
+SMOOTH_SPOT:[24249.7, 24249.5, 24251.4, 24252.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (UP)
+FAST_SLOPE:3.08 (th:4.29):Delta momentum
+SLOW_SLOPE:2.22 (th:8.57):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.87
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:01 | 24255 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24249.5, 24251.4, 24252.6, 24253.6]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:2.17 (th:4.11):Delta momentum
+SLOW_SLOPE:3.60 (th:8.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.09
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:02 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24251.4, 24252.6, 24253.6, 24254.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:1.42 (th:4.11):Delta momentum
+SLOW_SLOPE:4.33 (th:8.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.12
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:03 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24252.6, 24253.6, 24254.0, 24254.3]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.74 (th:4.11):Delta momentum
+SLOW_SLOPE:4.75 (th:8.22):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.11
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:04 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24253.6, 24254.0, 24254.3, 24254.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.65 (th:4.12):Delta momentum
+SLOW_SLOPE:3.26 (th:8.24):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.19
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:05 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24254.0, 24254.3, 24254.7, 24254.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.60 (th:4.03):Delta momentum
+SLOW_SLOPE:2.30 (th:8.05):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.25
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:06 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24254.3, 24254.7, 24254.9, 24254.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.22 (th:4.03):Delta momentum
+SLOW_SLOPE:1.32 (th:8.07):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.33
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:07 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24254.8, 24255.0, 24254.9, 24255.1]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.09 (th:4.03):Delta momentum
+SLOW_SLOPE:0.74 (th:8.07):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.33
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:08 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24255.0, 24254.9, 24255.1, 24255.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.06 (th:4.03):Delta momentum
+SLOW_SLOPE:0.49 (th:8.07):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.33
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:09 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24254.9, 24255.0, 24255.0, 24254.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.11 (th:4.03):Delta momentum
+SLOW_SLOPE:0.28 (th:8.07):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.33
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:10 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24255.0, 24255.0, 24254.9, 24254.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.07 (th:4.03):Delta momentum
+SLOW_SLOPE:0.01 (th:8.05):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.25
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:11 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24255.0, 24254.9, 24254.9, 24254.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.05 (th:4.03):Delta momentum
+SLOW_SLOPE:0.01 (th:8.05):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.25
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:12 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24254.9, 24254.9, 24254.9, 24254.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.03 (th:4.02):Delta momentum
+SLOW_SLOPE:-0.17 (th:8.03):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.17
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:13 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24254.9, 24254.9, 24254.9, 24254.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.03 (th:4.01):Delta momentum
+SLOW_SLOPE:-0.18 (th:8.02):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.08
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:14 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24254.9, 24254.9, 24254.9, 24255.0]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.15 (th:4.01):Delta momentum
+SLOW_SLOPE:0.06 (th:8.02):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.08
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:15 | 24255 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24254.9, 24254.9, 24255.0, 24245.3]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-9.60 (th:4.48):Delta momentum
+SLOW_SLOPE:-9.66 (th:8.96):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.78
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:PUT | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:16 | 24227 | TREND   | FORMING | PUT             | EARLY_TREND  | 4/4
+*** TRADE TRIGGERED: HIGH_PROB_PUT (Conf: 4/4) ***
+Launching AI Analysis and Telegram alert in background...
+AI API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+SMOOTH_SPOT:[24254.9, 24255.0, 24245.3, 24238.9]:EMA filtered
+REGIME:TREND | TREND_STATE: CONFIRMED (DOWN)
+FAST_SLOPE:-16.11 (th:4.48):Delta momentum
+SLOW_SLOPE:-15.97 (th:8.96):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 4.78
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:4/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:17 | 24227 | TREND   | CONFIRMED | NO_TRADE        | NONE         | 4/4
+SMOOTH_SPOT:[24255.0, 24245.3, 24238.9, 24233.7]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-11.55 (th:4.53):Delta momentum
+SLOW_SLOPE:-21.16 (th:9.06):Structural flow
+OI_LABEL:NEUTRAL | ATR: 5.30
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:18 | 24224 | TREND   | MATURE  | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24245.3, 24238.9, 24233.7, 24230.3]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-8.60 (th:4.53):Delta momentum
+SLOW_SLOPE:-24.54 (th:9.06):Structural flow
+OI_LABEL:NEUTRAL | ATR: 5.30
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:19 | 24224 | TREND   | MATURE  | NO_TRADE        | NONE         | 3/4
+SMOOTH_SPOT:[24238.9, 24233.7, 24230.3, 24228.1]:EMA filtered
+REGIME:TREND | TREND_STATE: MATURE (DOWN)
+FAST_SLOPE:-5.61 (th:4.53):Delta momentum
+SLOW_SLOPE:-26.92 (th:9.06):Structural flow
+OI_LABEL:NEUTRAL | ATR: 5.31
+CANDIDATE_TYPE:BREAKOUT
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
+SMOOTH_SPOT:[24233.7, 24230.3, 24228.1, 24226.7]:EMA filtered
+REGIME:RANGE | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-3.66 (th:4.52):Delta momentum
+SLOW_SLOPE:-18.60 (th:9.04):Structural flow
+OI_LABEL:NEUTRAL | ATR: 5.22
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:21 | 24224 | RANGE   | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24230.3, 24228.1, 24226.7, 24226.1]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: EXHAUSTION (DOWN)
+FAST_SLOPE:-2.03 (th:4.07):Delta momentum
+SLOW_SLOPE:-12.85 (th:8.14):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.69
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:22 | 24225 | SIDEWAYS | EXHAUSTION | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24228.1, 24226.7, 24226.1, 24225.7]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.97 (th:4.07):Delta momentum
+SLOW_SLOPE:-8.01 (th:8.14):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.69
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:23 | 24225 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24226.7, 24226.1, 24225.7, 24224.9]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.15 (th:4.04):Delta momentum
+SLOW_SLOPE:-5.40 (th:8.08):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.42
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:24 | 24224 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24226.1, 24225.7, 24224.9, 24224.5]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-1.22 (th:4.05):Delta momentum
+SLOW_SLOPE:-3.63 (th:8.09):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.45
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:25 | 24224 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24225.7, 24224.9, 24224.5, 24224.6]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-0.30 (th:4.07):Delta momentum
+SLOW_SLOPE:-2.05 (th:8.13):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.65
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:26 | 24225 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24224.9, 24224.5, 24224.6, 24224.6]:EMA filtered
+REGIME:SIDEWAYS | TREND_STATE: IDLE (UP)
+FAST_SLOPE:0.15 (th:4.07):Delta momentum
+SLOW_SLOPE:-1.45 (th:8.14):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 0.69
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:27 | 24225 | SIDEWAYS | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24224.5, 24224.6, 24224.6, 24221.6]:EMA filtered
+REGIME:RANGE | TREND_STATE: IDLE (DOWN)
+FAST_SLOPE:-2.98 (th:4.20):Delta momentum
+SLOW_SLOPE:-4.06 (th:8.39):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 1.95
+CANDIDATE_TYPE:NONE
+FINAL_SIGNAL:NO_TRADE | CONFIDENCE:0/4:Execution Gate
+------------------------------------------------------------
+TIME  | SPOT  | REGIME  | T-STATE | SIGNAL          | TYPE         | CONF
+15:28 | 24216 | RANGE   | IDLE    | NO_TRADE        | NONE         | 0/4
+SMOOTH_SPOT:[24224.6, 24224.6, 24221.7, 24220.2]:EMA filtered
+REGIME:TREND | TREND_STATE: FORMING (DOWN)
+FAST_SLOPE:-4.48 (th:4.22):Delta momentum
+SLOW_SLOPE:-4.78 (th:8.43):Structural flow
+OI_LABEL:BEARISH_CONFIRM | ATR: 2.17
+CANDIDATE_TYPE:EARLY_TREND
+FINAL_SIGNAL:PUT | CONFIDENCE:3/4:Execution Gate
+------------------------------------------------------------
