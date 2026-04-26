@@ -12,13 +12,59 @@ session.headers.update({
     "Referer":    "https://www.nseindia.com/option-chain",
 })
 
+# --------------------------------------------------------------
+# The 5 strikes we capture around ATM (offsets in points)
+# For Nifty, step size is 50 → ATM±100 gives us 5 strikes
+# --------------------------------------------------------------
+STRIKE_OFFSETS = [-100, -50, 0, 50, 100]  # relative to ATM
+
+# Human-readable labels for the 5 strike positions (for columns)
+STRIKE_LABELS = ["m100", "m50", "atm", "p50", "p100"]
+
+
+# ==============================================================
+# DATABASE INITIALIZATION
+# ==============================================================
+
 def init_db():
     with sqlite3.connect(DB_NAME) as conn:
+        # -----------------------------------------------------
+        # LEGACY TABLE (untouched — existing code continues to work)
+        # -----------------------------------------------------
         conn.execute('''CREATE TABLE IF NOT EXISTS snapshots (
             timestamp TEXT PRIMARY KEY, spot REAL, atm_strike REAL,
             ce_oi REAL, pe_oi REAL, ce_vol REAL, pe_vol REAL,
             trading_status TEXT DEFAULT 'NO_TRADE')''')
 
+        # -----------------------------------------------------
+        # NEW TABLE: per-strike OI and volume
+        # -----------------------------------------------------
+        # Columns: timestamp (PK), spot, atm_strike, expiry,
+        #          ce_oi_m100, ce_oi_m50, ce_oi_atm, ce_oi_p50, ce_oi_p100,
+        #          pe_oi_m100, pe_oi_m50, pe_oi_atm, pe_oi_p50, pe_oi_p100,
+        #          ce_vol_m100, ce_vol_m50, ce_vol_atm, ce_vol_p50, ce_vol_p100,
+        #          pe_vol_m100, pe_vol_m50, pe_vol_atm, pe_vol_p50, pe_vol_p100,
+        #          ce_oi_total_chain, pe_oi_total_chain,
+        #          underlying_change_pct
+        cols_def = ["timestamp TEXT PRIMARY KEY",
+                    "spot REAL",
+                    "atm_strike REAL",
+                    "expiry TEXT"]
+        for s in ["ce_oi", "pe_oi", "ce_vol", "pe_vol"]:
+            for lbl in STRIKE_LABELS:
+                cols_def.append(f"{s}_{lbl} REAL DEFAULT 0")
+        # Whole-chain totals (across ALL strikes of the nearest expiry)
+        cols_def.append("ce_oi_total_chain REAL DEFAULT 0")
+        cols_def.append("pe_oi_total_chain REAL DEFAULT 0")
+        cols_def.append("underlying_change_pct REAL DEFAULT 0")
+
+        conn.execute(f'''CREATE TABLE IF NOT EXISTS snapshots_detail (
+            {", ".join(cols_def)}
+        )''')
+
+        # -----------------------------------------------------
+        # engine_state table (unchanged, with idempotent column additions)
+        # -----------------------------------------------------
         conn.execute('''CREATE TABLE IF NOT EXISTS engine_state (
             id INTEGER PRIMARY KEY CHECK (id = 1), date TEXT,
             trend_state TEXT DEFAULT 'IDLE', active_trade TEXT DEFAULT 'NO_TRADE')''')
@@ -30,9 +76,8 @@ def init_db():
             timestamp TEXT, trend TEXT, trading_status TEXT,
             signal_printed INTEGER, suppress_reason TEXT, raw_output TEXT)''')
 
-        # Column additions (idempotent — safe to run repeatedly)
+        # Idempotent engine_state column additions
         cols = [
-            # Legacy columns kept for AI context and backward compatibility
             ("bars_in_trade", "INTEGER DEFAULT 0"),
             ("max_profit", "REAL DEFAULT 0.0"),
             ("entry_spot", "REAL DEFAULT 0.0"),
@@ -55,7 +100,6 @@ def init_db():
             ("last_trade_time", "INTEGER DEFAULT 0"),
             ("daily_pnl", "REAL DEFAULT 0.0"),
             ("last_trade_dir", "TEXT DEFAULT 'NONE'"),
-            # v28 state fields
             ("stop_level", "REAL"),
             ("medium_atr_at_entry", "REAL DEFAULT 0.0"),
             ("favorable_extreme", "REAL DEFAULT 0.0"),
@@ -64,6 +108,8 @@ def init_db():
             ("session_high", "REAL"),
             ("session_low", "REAL"),
             ("tier_threshold", "REAL DEFAULT -1e9"),
+            ("pcr_history", "TEXT DEFAULT '[]'"),
+            ("entry_pcr", "REAL DEFAULT 1.0"),
         ]
         for col, dtype in cols:
             try:
@@ -72,13 +118,20 @@ def init_db():
                 pass
 
 
+# ==============================================================
+# NSE DATA FETCH
+# ==============================================================
+
 def fetch_nse_data():
     symbol = "NIFTY"
     base_url = "https://www.nseindia.com"
     for attempt in range(3):
         try:
             session.get(base_url, timeout=10)
-            exp_resp = session.get(f"{base_url}/api/option-chain-contract-info?symbol={symbol}", timeout=10)
+            exp_resp = session.get(
+                f"{base_url}/api/option-chain-contract-info?symbol={symbol}",
+                timeout=10
+            )
             if exp_resp.ok:
                 nearest_expiry = exp_resp.json()['expiryDates'][0]
                 chain_resp = session.get(
@@ -89,6 +142,7 @@ def fetch_nse_data():
                     data = chain_resp.json()
                     if ('records' in data and 'data' in data['records']
                             and len(data['records']['data']) > 0):
+                        data['_expiry'] = nearest_expiry
                         return data
         except Exception:
             pass
@@ -96,37 +150,111 @@ def fetch_nse_data():
     return None
 
 
+# ==============================================================
+# STORE SNAPSHOT
+# ==============================================================
+
 def store_snapshot_and_get_data(now: datetime.datetime):
     data = fetch_nse_data()
     if not data or 'records' not in data:
         return False
 
-    spot = data['records']['underlyingValue']
+    spot = data['records'].get('underlyingValue', 0)
     if spot < 10000 or spot > 40000:
         return False
 
     atm_strike = round(spot / 50) * 50
-    target_strikes = [atm_strike - 100, atm_strike - 50, atm_strike,
-                      atm_strike + 50, atm_strike + 100]
     ts_str = now.strftime('%Y-%m-%d %H:%M:00')
-    ce_oi = pe_oi = ce_vol = pe_vol = 0
+    expiry = data.get('_expiry', '')
 
-    for r in data['records']['data']:
-        if r.get('strikePrice') in target_strikes:
-            ce = r.get('CE', {})
-            pe = r.get('PE', {})
-            ce_oi += ce.get('openInterest', 0)
-            pe_oi += pe.get('openInterest', 0)
-            ce_vol += ce.get('totalTradedVolume', 0)
-            pe_vol += pe.get('totalTradedVolume', 0)
+    # The 5 target strikes we care about for per-strike tracking
+    target_strikes = {atm_strike + off: STRIKE_LABELS[i]
+                      for i, off in enumerate(STRIKE_OFFSETS)}
+
+    # Initialize storage dicts
+    per_strike = {}
+    for s in ["ce_oi", "pe_oi", "ce_vol", "pe_vol"]:
+        for lbl in STRIKE_LABELS:
+            per_strike[f"{s}_{lbl}"] = 0.0
+
+    # Aggregated totals (for legacy snapshots table — kept identical to old behavior)
+    legacy_ce_oi = legacy_pe_oi = legacy_ce_vol = legacy_pe_vol = 0.0
+
+    # Whole-chain totals (across ALL strikes)
+    ce_oi_total_chain = pe_oi_total_chain = 0.0
+
+    for row in data['records']['data']:
+        strike = row.get('strikePrice')
+        if strike is None:
+            continue
+
+        ce = row.get('CE', {}) or {}
+        pe = row.get('PE', {}) or {}
+
+        ce_oi_v  = ce.get('openInterest', 0) or 0
+        pe_oi_v  = pe.get('openInterest', 0) or 0
+        ce_vol_v = ce.get('totalTradedVolume', 0) or 0
+        pe_vol_v = pe.get('totalTradedVolume', 0) or 0
+
+        # Whole-chain totals
+        ce_oi_total_chain += ce_oi_v
+        pe_oi_total_chain += pe_oi_v
+
+        # If this strike is one of our target strikes, populate per-strike fields
+        if strike in target_strikes:
+            lbl = target_strikes[strike]
+            per_strike[f"ce_oi_{lbl}"]  = ce_oi_v
+            per_strike[f"pe_oi_{lbl}"]  = pe_oi_v
+            per_strike[f"ce_vol_{lbl}"] = ce_vol_v
+            per_strike[f"pe_vol_{lbl}"] = pe_vol_v
+
+            # Also contribute to the legacy aggregate (same formula as old code)
+            legacy_ce_oi  += ce_oi_v
+            legacy_pe_oi  += pe_oi_v
+            legacy_ce_vol += ce_vol_v
+            legacy_pe_vol += pe_vol_v
+
+    underlying_change_pct = data['records'].get('underlyingChangePct', 0) or 0
 
     with sqlite3.connect(DB_NAME) as conn:
+        # --- Legacy table insert (keeps existing code working) ---
         conn.execute('''INSERT OR REPLACE INTO snapshots
             (timestamp, spot, atm_strike, ce_oi, pe_oi, ce_vol, pe_vol, trading_status)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)''',
-            (ts_str, spot, atm_strike, ce_oi, pe_oi, ce_vol, pe_vol, 'NO_TRADE'))
+            (ts_str, spot, atm_strike,
+             legacy_ce_oi, legacy_pe_oi, legacy_ce_vol, legacy_pe_vol,
+             'NO_TRADE'))
+
+        # --- New detail table insert ---
+        cols = ["timestamp", "spot", "atm_strike", "expiry"]
+        vals = [ts_str, spot, atm_strike, expiry]
+
+        for s in ["ce_oi", "pe_oi", "ce_vol", "pe_vol"]:
+            for lbl in STRIKE_LABELS:
+                key = f"{s}_{lbl}"
+                cols.append(key)
+                vals.append(per_strike[key])
+
+        cols.append("ce_oi_total_chain")
+        vals.append(ce_oi_total_chain)
+        cols.append("pe_oi_total_chain")
+        vals.append(pe_oi_total_chain)
+        cols.append("underlying_change_pct")
+        vals.append(underlying_change_pct)
+
+        placeholders = ", ".join(["?"] * len(vals))
+        colnames = ", ".join(cols)
+        conn.execute(
+            f"INSERT OR REPLACE INTO snapshots_detail ({colnames}) VALUES ({placeholders})",
+            vals
+        )
+
     return ts_str
 
+
+# ==============================================================
+# UPDATE SNAPSHOT STATUS (legacy)
+# ==============================================================
 
 def update_snapshot_status(ts_str, status):
     with sqlite3.connect(DB_NAME) as conn:
@@ -134,7 +262,15 @@ def update_snapshot_status(ts_str, status):
                      (status, ts_str))
 
 
+# ==============================================================
+# LOAD SNAPSHOTS
+# ==============================================================
+
 def load_snapshots(limit=35):
+    """
+    Legacy load: returns aggregated rows from `snapshots`.
+    Kept for backward compatibility with current compute.py / classify.py.
+    """
     with sqlite3.connect(DB_NAME) as conn:
         conn.row_factory = sqlite3.Row
         cur = conn.execute(
@@ -142,21 +278,38 @@ def load_snapshots(limit=35):
         return [dict(r) for r in reversed(cur.fetchall())]
 
 
+def load_snapshots_detail(limit=35):
+    """
+    New load: returns per-strike detail rows from `snapshots_detail`.
+    Use this for the new OI-writer-capitulation analysis.
+    """
+    with sqlite3.connect(DB_NAME) as conn:
+        conn.row_factory = sqlite3.Row
+        cur = conn.execute(
+            "SELECT * FROM snapshots_detail ORDER BY timestamp DESC LIMIT ?", (limit,))
+        return [dict(r) for r in reversed(cur.fetchall())]
+
+
+# ==============================================================
+# STATE LOAD / SAVE (unchanged except for pcr_history + entry_pcr)
+# ==============================================================
+
 def load_state(today_str: str):
     with sqlite3.connect(DB_NAME) as conn:
         conn.row_factory = sqlite3.Row
         state = dict(conn.execute("SELECT * FROM engine_state WHERE id=1").fetchone())
 
         if state.get('date') != today_str:
-            # Daily reset — fresh start for the new trading day
             state.update({
                 'date': today_str,
                 'momentum_history': '[]',
+                'pcr_history': '[]',
                 'trend_state': 'IDLE',
                 'active_trade': 'NO_TRADE',
                 'bars_in_trade': 0,
                 'max_profit': 0.0,
                 'entry_spot': 0.0,
+                'entry_pcr': 1.0,
                 'prev_momentum': 0.0,
                 'prev_momentum_for_accel': 0.0,
                 'vwap_num': 0.0,
@@ -175,7 +328,6 @@ def load_state(today_str: str):
                 'last_trade_time': 0,
                 'daily_pnl': 0.0,
                 'last_trade_dir': 'NONE',
-                # v28 fields reset
                 'stop_level': None,
                 'medium_atr_at_entry': 0.0,
                 'favorable_extreme': 0.0,
@@ -186,11 +338,16 @@ def load_state(today_str: str):
                 'tier_threshold': -1e9,
             })
 
-        # Deserialize momentum history from JSON
+        # Deserialize history fields
         try:
             state['momentum_history'] = json.loads(state.get('momentum_history', '[]'))
         except (TypeError, json.JSONDecodeError):
             state['momentum_history'] = []
+
+        try:
+            state['pcr_history'] = json.loads(state.get('pcr_history', '[]'))
+        except (TypeError, json.JSONDecodeError):
+            state['pcr_history'] = []
 
         return state
 
@@ -206,7 +363,8 @@ def save_state(state):
             loss_cooldown_bars=?, exit_cooldown=?, spike_cooldown=?,
             last_trade_time=?, daily_pnl=?, last_trade_dir=?,
             stop_level=?, medium_atr_at_entry=?, favorable_extreme=?, initial_stop_dist=?,
-            session_ref=?, session_high=?, session_low=?, tier_threshold=?
+            session_ref=?, session_high=?, session_low=?, tier_threshold=?,
+            pcr_history=?, entry_pcr=?
             WHERE id=1''',
             (state['date'], state['active_trade'], state['bars_in_trade'],
              state.get('max_profit', 0.0), state.get('entry_spot', 0.0),
@@ -229,8 +387,14 @@ def save_state(state):
              state.get('session_ref'),
              state.get('session_high'),
              state.get('session_low'),
-             state.get('tier_threshold', -1e9)))
+             state.get('tier_threshold', -1e9),
+             json.dumps(state.get('pcr_history', [])),
+             state.get('entry_pcr', 1.0)))
 
+
+# ==============================================================
+# LOG
+# ==============================================================
 
 def log_engine_run(ts, trend, status, printed, reason, raw):
     with sqlite3.connect(DB_NAME) as conn:
