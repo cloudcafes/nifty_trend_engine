@@ -1,3 +1,17 @@
+sqlite3 -header -csv nifty.db "SELECT * FROM snapshots_detail ORDER BY timestamp;" > snapshot_detail_20260427.csv
+
+Think from scratch again with regards to Options Market Data (Open Interest and Volume) not only price and with more deep analysis because your previous fixes did not solve the problem and it is a failure on your side completely that you did not thought and performed and failed.
+Use Options Market Data (Open Interest and Volume) for primary trend decision. Always keep in mind this is not a scalping system - tight stops, quick exits, ratchets that lock in tiny profits. But it is a nifty options intraday trend-following system Options Market Data (Open Interest and Volume). The entire philosophy should be:
+Find the trend.
+Enter the trend. 
+HOLD the trend.
+Exit when the trend actually reverses/exhausted.
+Do not put any cap on number of trades or time of trade, each trade will be slected by the python engine based on the merit of Options Market Data (Open Interest and Volume) & nifty price.
+While providing any fix or suggestion, this python program has to work in all the nifty options intraday situations. the market may be just opposite to what you see today. So always provide universal solution which will work for any day of the nifty options intraday trade.
+Do not hallucinate or assume. Work the program as a nifty options intraday proven scientific mathematical model solving nifty options multiple probability problem.
+Do not hesitate to rewrite the code from scratch if you think some code is flawed and needs fresh thinking and rewrite. Do not always try to fix or patch if the solution is rewrite.
+STRICTLY DO NOT GIVE ANY CODE UNTILL AND UNLESS THE SYSTEM IS PROFITABLE ON REPLAY DATA IN MENTAL MATH CALCULATIONS.
+
 how do you see performance of the nifty options analysis program performance from the attached pasted text?
 
 I want you to analyze attached script for nifty option chain calculations and recommend what right and what is wrong based on your above recommendations and analysis
