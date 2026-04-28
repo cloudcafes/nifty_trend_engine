@@ -1,9 +1,8 @@
 import sqlite3
 import datetime
-from config import DB_NAME, ATR_SEED
+from config import DB_NAME, FETCH_INTERVAL_MINUTES
 from compute import compute_metrics
 from classify import process_engine_step
-from output import compute_current_pnl
 
 # ==========================================
 # REPLAY CONFIGURATION
@@ -12,60 +11,62 @@ from output import compute_current_pnl
 TARGET_DATE = '2026-04-24'  
 
 def get_fresh_state(target_date):
-    """Creates a temporary in-memory state, identical to a fresh morning start."""
+    """Creates a temporary in-memory state mapped perfectly to the Universal OI Trend logic."""
     return {
-        'date': target_date, 'momentum_history': [], 'trend_state': 'IDLE', 'active_trade': 'NO_TRADE',
-        'bars_in_trade': 0, 'max_profit': 0.0, 'entry_spot': 0.0, 'prev_momentum': 0.0,
-        'prev_momentum_for_accel': 0.0, 'vwap_num': 0.0, 'vwap_den': 0.0, 'last_cum_vol': 0.0,
-        'fast_atr': ATR_SEED, 'medium_atr': ATR_SEED, 'slow_atr': ATR_SEED, 'trend_lock': 0,
-        'min_hold': 0, 'daily_trades': 0, 'consecutive_losses': 0, 'loss_cooldown_bars': 0,
-        'exit_cooldown': 0, 'spike_cooldown': 0, 'last_trade_time': 0, 'daily_pnl': 0.0,
-        'last_trade_dir': 'NONE'
+        'date': target_date,
+        'active_trade': 'NO_TRADE',
+        'entry_spot': 0.0,
+        'max_profit': 0.0,
+        'daily_pnl': 0.0,
+        'call_bias_bars': 0,
+        'put_bias_bars': 0,
+        'pcr_strong_call_bars': 0,
+        'pcr_weak_call_bars': 0,
+        'oi_bias_history': [],
+        'trend_direction': 'NEUTRAL',
+        'consecutive_opposite_bias': 0
     }
 
 def fetch_day_snapshots(target_date):
-    """Fetches all 1-minute snapshots for the target date in chronological order."""
+    """Fetches all legacy snapshots for the target date in chronological order."""
     with sqlite3.connect(DB_NAME) as conn:
         conn.row_factory = sqlite3.Row
-        # The LIKE operator matches the date prefix. ASC ensures chronological order.
         cur = conn.execute("SELECT * FROM snapshots WHERE timestamp LIKE ? ORDER BY timestamp ASC", (f"{target_date}%",))
         return [dict(r) for r in cur.fetchall()]
 
 def print_replay_output(ts_str, classification, metrics, state):
-    """Safely prints the formatted output to console without touching text files."""
-    price, momentum = metrics["price"], metrics["momentum"]
-    regime, vwap = metrics.get("regime", "UNKNOWN"), metrics.get("vwap", price)
-    sbias, tbias = metrics.get("structural_bias", "NONE"), metrics.get("tactical_bias", "NONE")
+    """Safely prints the newly formatted output to the console."""
+    price = metrics.get("price", 0.0)
+    momentum = metrics.get("momentum", 0.0)
+    sbias = metrics.get("str_bias", "NONE")
+    tbias = metrics.get("tac_bias", "NONE")
+    pcr = metrics.get("pcr_now", 1.0)
+    oi_bias = metrics.get("oi_bias", "NEUTRAL")
 
-    action, signal = classification.get("action", "NO_TRADE"), classification.get("signal", "NO_TRADE")
-    reason, strike, score = classification.get("reason", "NONE"), classification.get("strike", "N/A"), classification.get("score", 0)
-
-    active_trade, daily_pnl = state.get("active_trade", "NO_TRADE"), state.get("daily_pnl", 0.0)
-
-    if active_trade != "NO_TRADE":
-        pnl = compute_current_pnl(price, state)
-        max_pnl = state.get("max_profit", 0.0)
-        dd = (max_pnl - pnl) / max_pnl if max_pnl > 5.0 else 0.0
-    else: 
-        pnl, max_pnl, dd = 0.0, 0.0, 0.0
+    action = classification.get("action", "NO_TRADE")
+    signal = classification.get("signal", "NO_TRADE")
+    reason = classification.get("reason", "NONE")
+    score = classification.get("score", 0)
+    pnl = classification.get("pnl", 0.0)
+    trend = classification.get("trend", state.get("trend_direction", "NEUTRAL"))
+    
+    active_trade = state.get("active_trade", "NO_TRADE")
+    daily_pnl = state.get("daily_pnl", 0.0)
+    consec_opp = state.get("consecutive_opposite_bias", 0)
 
     hh_mm = ts_str.split(" ")[1][:5]
-    columns_header = "TIME  | SPOT  | REGIME   | ACTION  | SIGNAL | SCORE  | OPT_PNL | DD"
-    main_line = f"{hh_mm} | {price:.0f} | {regime:<8} | {action:<7} | {signal:<6} | {score:<6} | {pnl:+.1f}   | {dd:.0%}"
+    columns_header = "TIME  | SPOT  | TREND        | ACTION  | SIGNAL | PNL  | SCORE"
+    main_line = f"{hh_mm} | {price:.0f} | {trend:<12} | {action:<7} | {signal:<6} | {pnl:+.1f} | {score}"
 
     diag_lines = [
-        f"MOM:{momentum:.6f} | ACCEL:{metrics.get('accel',0):.6f} | FAST_ATR:{metrics.get('fast_atr',0):.1f} ({metrics.get('atr_pct',0):.4%})",
-        f"EXP_MOVE:{metrics.get('expected_move',0):.1f} | PROG:{metrics.get('move_progress',0):.2f} | RNG_10:{metrics.get('range_10',0):.1f}",
-        f"BIAS (STR/TAC): {sbias}/{tbias} | VWAP:{vwap:.1f} | VOL_SPIKE:{'YES' if metrics.get('vol_spike') else 'NO'}",
-        f"PCR:{metrics.get('pcr',1):.2f} | PCR_DELTA:{metrics.get('pcr_delta',0):.3f} | OI_BIAS:{metrics.get('oi_bias','NONE')} | EXT_UP:{'YES' if metrics.get('ext_up') else 'NO'} | EXT_DN:{'YES' if metrics.get('ext_down') else 'NO'}",
-        f"ENTRY/EXIT REASON: {reason} | DAILY_TRADES: {state.get('daily_trades', 0)}/UNCAPPED | DAILY_PNL: {daily_pnl:.1f}"
+        f"MOMENTUM: {momentum:.4f} | STR_BIAS: {sbias} | TAC_BIAS: {tbias}",
+        f"PCR: {pcr:.2f} | OI_BIAS: {oi_bias} | TREND_FILTER: {trend}",
+        f"PERSISTENCE: Call({state.get('call_bias_bars',0)}) Put({state.get('put_bias_bars',0)}) | PCR_Strong_Call({state.get('pcr_strong_call_bars',0)})",
+        f"REASON: {reason} | DAILY PNL: {daily_pnl:.1f} | CONSEC_OPP_OI: {consec_opp} bars"
     ]
     
-    if action == "ENTRY": 
-        diag_lines.append(f"SUGGESTED_STRIKE: {strike}")
-    
     if active_trade != "NO_TRADE":
-        diag_lines.append(f"TRADE:{active_trade} | BARS:{state.get('bars_in_trade', 0)} | MAX_PNL:{max_pnl:.1f} | CUR_PNL:{pnl:.1f} | LOCK:{state.get('trend_lock',0)} | HOLD:{state.get('min_hold',0)}")
+        diag_lines.append(f"TRADE: {active_trade} | MAX PROFIT: {state.get('max_profit', 0.0):.1f}")
     
     diag_lines.append("-" * 80)
 
@@ -78,52 +79,51 @@ def run_replay():
     
     day_data = fetch_day_snapshots(TARGET_DATE)
     if not day_data:
-        print(f"No data found for {TARGET_DATE} in {DB_NAME}. Check the date format (YYYY-MM-DD) or ensure the engine ran on this day.")
+        print(f"No data found for {TARGET_DATE} in {DB_NAME}. Check the date format (YYYY-MM-DD).")
         return
 
     # Initialize the temporary ghost state
     state = get_fresh_state(TARGET_DATE)
     rolling_window = []
+    last_run_minute = None
 
     # Stream the data through the engine exactly like a live market
     for row in day_data:
-        rolling_window.append(row)
-        
-        # Engine computes metrics using maximum of last 35 bars
-        if len(rolling_window) > 35:
-            rolling_window.pop(0)
-
         ts_str = row['timestamp']
         dt_obj = datetime.datetime.strptime(ts_str, '%Y-%m-%d %H:%M:%S')
         t = dt_obj.time()
+        curr_minute = dt_obj.minute
 
-        # Engine requires 15 bars of warmup before generating metrics
-        if len(rolling_window) < 15:
-            print(f"{ts_str.split(' ')[1][:5]} | --- WARMING UP ({len(rolling_window)}/15 BARS) ---")
+        # Standard Market Hour Filter
+        if t >= datetime.time(15, 30) or t < datetime.time(9, 15):
             continue
-
-        metrics = compute_metrics(rolling_window, state)
-        if not metrics:
-            continue
-
-        # EOD Cutoff Logic
-        if t >= datetime.time(15, 30):
-            print(f"{ts_str.split(' ')[1][:5]} | --- MARKET CLOSED ---")
-            break
             
-        force_exit_only = False
-        if t >= datetime.time(14, 45):
-            if state.get('active_trade', 'NO_TRADE') == 'NO_TRADE':
-                print(f"{ts_str.split(' ')[1][:5]} | NO NEW ENTRIES AFTER 14:45")
+        force_exit_only = (t >= datetime.time(14, 45))
+
+        # Enforce exact interval processing for legacy 1-min DBs
+        if curr_minute % FETCH_INTERVAL_MINUTES == 0 and curr_minute != last_run_minute:
+            last_run_minute = curr_minute
+            
+            rolling_window.append(row)
+
+            # Cap rolling window at 10 to match memory overhead limits
+            if len(rolling_window) > 10:
+                rolling_window.pop(0)
+
+            # Engine requires 5 bars of warmup before generating momentum/bias metrics
+            if len(rolling_window) < 5:
+                print(f"{ts_str.split(' ')[1][:5]} | --- WARMING UP ({len(rolling_window)}/5 BARS) ---")
                 continue
-            else:
-                force_exit_only = True
 
-        # Process the mathematical logic for this minute
-        classification = process_engine_step(metrics, state, t, force_exit_only)
+            metrics = compute_metrics(rolling_window, state)
+            if not metrics:
+                continue
 
-        # Print the exact console output you are used to seeing
-        print_replay_output(ts_str, classification, metrics, state)
+            # Process the mathematical logic for this bar
+            classification = process_engine_step(metrics, state, t, force_exit_only)
+
+            # Print the exact console output
+            print_replay_output(ts_str, classification, metrics, state)
 
     print(f"=== REPLAY COMPLETE | NET PNL: {state.get('daily_pnl', 0.0):.1f} ===")
 

@@ -1,19 +1,9 @@
-1. **Market Perspective:** The market has shifted into a clear bullish TRENDI regime with strong momentum (M: 1.56). Despite some chop between 14:26-14:28, the index reclaimed the upward trajectory with an accelerating momentum score. The structural BIAS has flipped to CALL, and the volatility regime remains supportive. The rapid swing in PCR (0.79) indicates aggressive call unwinding or fresh put writing, suggesting institutional support at the current levels.
+1. The market perspective is bullish as indicated by the consistently low Put-Call Ratio (PCR) below 0.85. While there have been some fluctuations in momentum and structural bias, the overall PCR trend suggests strong demand for calls and/or selling of puts by institutional players, anchoring the bullish sentiment.
 
-2. **Key Levels:** 
-   - **Support (23840):** The recent consolidation base; holding above this confirms the trend. 
-   - **Resistance (23910):** The immediate statistical upside target based on recent price expansion.
+2. Key levels to watch are the recent swing high around 24040 for potential resistance and the area around 24000 as a psychological support level. The current spot price of 24035 indicates the market is trading near its recent highs.
 
-3. **Intraday Trade Recommendation:** 
-   - **Entry Zone:** 23875–23885 (Spot).
-   - **Stop Loss:** 23840 (Spot) - below the recent consolidation pivot.
-   - **Target:** 23910 (Spot) - seeking the next major resistance level. 
-   - **Reason:** Momentum is strongly positive (1.56), and the market is trending with clear institutional participation indicated by the shift back to a lower PCR (0.79), favoring the upside.
+3. Intraday trade recommendation: Long entry zone: 24025-24030. Stop Loss (spot): 23990. Target (spot): 24100. Rationale: The PCR is strongly bullish (<0.85). Recent bars show some choppiness but the overall trend of PCR remains supportive of a bullish move. Momentum has shown recent positive inclination, and while structural bias has been mixed, the overarching PCR suggests an upward bias is more probable. This trade aims to capture a continuation of the underlying bullish sentiment, assuming the market can break above recent resistance.
 
-4. **Strategy (if no trend):** Not applicable, as a TRENDI regime is active. However, if the market stalls, a **Bull Call Spread** is the preferred strategy. It benefits from the existing CALL_BIAS while mitigating the risk of time decay (theta) during potential consolidation, maintaining a high probability of profit if the spot stays above the 23840 level.
+4. Top risk factors right now are the mixed structural bias over the last 15 bars and the occasional negative momentum spikes, particularly the strong negative momentum seen around 13:00. This suggests that while institutional players are broadly bullish (via PCR), there might be short-term selling pressure or unwinding of positions that could lead to pullbacks.
 
-5. **Top Risk Factors:** 
-   - **Time of Day:** It is currently 14:30; liquidity typically thins out as we approach the final 30 minutes, increasing the risk of erratic "noise" trades.
-   - **PCR Volatility:** The rapid PCR fluctuations (0.79 to 1.19 and back) signal instability in OI, which could lead to a sudden reversal if the 23840 support fails.
-
-POTENTIAL: HIGH
+POTENTIAL: MEDIUM
